@@ -223,23 +223,12 @@
 			</control>
 			
 			<control type="button" id="16">
-				<description>Wall Horizon</description>
+				<description>Wall</description>
 				<include>DropDownMenuViewModeBtn</include>
 				<label>$LOCALIZE[31113]</label>
 				<onclick condition="Container.Content(Movies)">Container.SetViewMode(69)</onclick>
 				<onclick condition="Container.Content(TVShows)">Container.SetViewMode(586)</onclick>
 				<onclick condition="Container.Content(Albums)">Container.SetViewMode(70)</onclick>
-				<onclick>Dialog.Close(3002)</onclick>
-				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Albums)</visible>
-			</control>
-			
-			<control type="button" id="20">
-				<description>Wall Verti</description>
-				<include>DropDownMenuViewModeBtn</include>
-				<label>$LOCALIZE[311131]</label><!--TODO change all language string files, NL & all EN done-->
-				<onclick condition="Container.Content(Movies)">Container.SetViewMode(69)</onclick><!--TODO change to proper viewmode-->
-				<onclick condition="Container.Content(TVShows)">Container.SetViewMode(586)</onclick><!--TODO change to proper viewmode-->
-				<onclick condition="Container.Content(Albums)">Container.SetViewMode(70)</onclick><!--TODO change to proper viewmode-->
 				<onclick>Dialog.Close(3002)</onclick>
 				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Albums)</visible>
 			</control>

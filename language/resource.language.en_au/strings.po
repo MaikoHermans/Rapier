@@ -165,12 +165,8 @@ msgid "Sort: Descending"
 msgstr "Sort: Descending"
 
 msgctxt "#31113"
-msgid "Wall Horizon"
-msgstr "Wall Horizon"
-
-msgctxt "#311131"
-msgid "Wall Verti"
-msgstr "Wall Verti"
+msgid "Wall"
+msgstr "Wall"
 
 msgctxt "#31114"
 msgid "Wide List"

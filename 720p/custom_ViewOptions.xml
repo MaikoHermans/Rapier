@@ -2218,6 +2218,54 @@
 				<onclick>Container.SetViewMode(587)</onclick>
 				<visible>Skin.String(CurrentViewMode,587) + Container.Content(musicvideos)</visible>
 			</control>
+			<control type="button" id="1040">
+				<description>View Directions Header</description>
+				<include>DropDownMenuHeader</include>
+				<label>$LOCALIZE[312061]</label>
+				<visible>Control.IsVisible(2028) | Control.IsVisible(2021)</visible>
+			</control>
+			<control type="radiobutton" id="2030">
+				<description>Wall Use Horizontal (Movies)</description>
+				<include>DropDownMenuRadioBtn</include>
+				<label>$LOCALIZE[31999]</label>
+				<selected>Skin.String(MoviesWallNavigation,1) | Skin.String(MoviesWallNavigation,)</selected>
+				<onclick>Skin.SetString(MoviesWallNavigation,1)</onclick>
+				<onclick>ReloadSkin()</onclick>
+				<include>ReloadSkinNotification</include>
+				<visible>Skin.String(CurrentViewMode,69) + [Container.Content(Movies) | Container.Content(Sets)]</visible>
+			</control>
+			<control type="radiobutton" id="2031">
+				<description>Wall Use Vertical (Movies)</description>
+				<include>DropDownMenuRadioBtn</include>
+				<label>$LOCALIZE[32000]</label>
+				<selected>Skin.String(MoviesWallNavigation,2)</selected>
+				<onclick>Skin.SetString(MoviesWallNavigation,2)</onclick>
+				<onclick>Skin.Reset(HideMoviesWallExtendedInfoPanel)</onclick>
+				<onclick>ReloadSkin()</onclick>
+				<include>ReloadSkinNotification</include>
+				<visible>Skin.String(CurrentViewMode,69) + [Container.Content(Movies) | Container.Content(Sets)]</visible>
+			</control>
+			<control type="radiobutton" id="2032">
+				<description>Wall Use Horizontal (TVShows)</description>
+				<include>DropDownMenuRadioBtn</include>
+				<label>$LOCALIZE[31999]</label>
+				<selected>Skin.String(TVShowsWallNavigation,1) | Skin.String(TVShowsWallNavigation,)</selected>
+				<onclick>Skin.SetString(TVShowsWallNavigation,1)</onclick>
+				<onclick>ReloadSkin()</onclick>
+				<include>ReloadSkinNotification</include>
+				<visible>Skin.String(CurrentViewMode,586) + Container.Content(TVShows)</visible>
+			</control>
+			<control type="radiobutton" id="2033">
+				<description>Wall Use Vertical (TVShows)</description>
+				<include>DropDownMenuRadioBtn</include>
+				<label>$LOCALIZE[32000]</label>
+				<selected>Skin.String(TVShowsWallNavigation,2)</selected>
+				<onclick>Skin.SetString(TVShowsWallNavigation,2)</onclick>
+				<onclick>Skin.Reset(HideTVShowsWallExtendedInfoPanel)</onclick>
+				<onclick>ReloadSkin()</onclick>
+				<include>ReloadSkinNotification</include>
+				<visible>Skin.String(CurrentViewMode,586) + Container.Content(TVShows)</visible>
+			</control>
 			<control type="image" id="781">
 				<include>DropDownMenuBottomBorder</include>
 			</control>

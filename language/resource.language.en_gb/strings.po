@@ -482,10 +482,6 @@ msgctxt "#31113"
 msgid "Wall"
 msgstr ""
 
-msgctxt "#311131"
-msgid "Wall Verti"
-msgstr ""
-
 msgctxt "#31114"
 msgid "Wide List"
 msgstr ""
@@ -624,6 +620,10 @@ msgstr ""
 
 msgctxt "#31206"
 msgid "View Styles"
+msgstr ""
+
+msgctxt "#312061"
+msgid "Navigation Direction"
 msgstr ""
 
 msgctxt "#31207"
@@ -1576,6 +1576,14 @@ msgstr ""
 
 msgctxt "#31998"
 msgid "Kodi's Music Library"
+msgstr ""
+
+msgctxt "#31999"
+msgid "Horizontal"
+msgstr ""
+
+msgctxt "#32000"
+msgid "Vertical"
 msgstr ""
 
 #empty strings from id 31999 to 32023
