@@ -931,7 +931,7 @@
 		<control type="image">
 			<width>180</width>
 			<height>245</height>
-			<texture border="7">covers/cover-case-focus.png</texture>
+			<texture border="0">covers/cover-case-focus.png</texture>
 			<aspectratio>stretch</aspectratio>
 			<animation effect="fade" start="0" end="100" time="150" reversible="false">Focus</animation>
 		</control>

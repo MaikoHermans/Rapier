@@ -4635,6 +4635,7 @@
 						<visible>!Skin.HasSetting(HideTVShowsWallOverlay) + !StringCompare(ListItem.Property(UnWatchedEpisodes),0) + IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),99)</visible>
 					</control>
 				</itemlayout>
+
 				<itemlayout width="92" height="135" condition="Skin.String(TVShowsWallStyle,2)">
 					<control type="image">
 						<description>Default Cover</description>
