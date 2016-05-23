@@ -33,8 +33,8 @@
 					<include>SettingsContentRadioBtn</include>
 					<label>$LOCALIZE[31131]</label>
 					<selected>Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)</selected>
-					<onclick condition="String.IsEmpty(Skin.String(LowCPUPowerMode))">Skin.SetString(DialogVideoInfoButtonMenu,LowCPUPowerMode)</onclick>
-					<onclick condition="String.IsEmpty(Skin.String(LowCPUPowerMode))">ActivateWindow(980)</onclick>
+					<onclick condition="IsEmpty(Skin.String(LowCPUPowerMode))">Skin.SetString(DialogVideoInfoButtonMenu,LowCPUPowerMode)</onclick>
+					<onclick condition="IsEmpty(Skin.String(LowCPUPowerMode))">ActivateWindow(980)</onclick>
 					<onclick condition="Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)">Skin.Reset(LowCPUPowerMode)</onclick>
 				</control>
 				<control type="radiobutton" id="1006">
@@ -62,7 +62,7 @@
 					<usealttexture>Skin.HasSetting(SkinDateFormat)</usealttexture>
 					<onclick>Skin.ToggleSetting(SkinDateFormat)</onclick>
 					<visible>!Skin.HasSetting(HideTopBarDate)</visible>
-				</control>
+				</control>				
 				<control type="radiobutton" id="1012">
 					<description>Hide Top Media Menu Bar</description>
 					<include>SettingsContentRadioBtn</include>
@@ -84,9 +84,9 @@
 					<include>SettingsContentToggleBtn</include>
 					<label>$LOCALIZE[31133]</label>
 					<altlabel>$LOCALIZE[31134]</altlabel>
-					<usealttexture>Skin.HasSetting(EnableQuickJump) + System.HasAddon(script.skin.helper.service)</usealttexture>
-					<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.ToggleSetting(EnableQuickJump)</onclick>
-					<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+					<usealttexture>Skin.HasSetting(EnableQuickJump)</usealttexture>
+					<onclick>Skin.ToggleSetting(EnableQuickJump)</onclick>
+					<visible>System.HasAddon(script.skin.helper.service)</visible>
 				</control>
 				<control type="radiobutton" id="1014">
 					<description>Enable Battery Notification</description>
@@ -96,15 +96,15 @@
 					<onclick>Skin.ToggleSetting(EnableBatteryNotification)</onclick>
 					<onclick>ReloadSkin()</onclick>
 					<include>ReloadSkinNotification</include>
-					<visible>Integer.IsGreater(System.BatteryLevel,0)</visible>
+					<visible>IntegerGreaterThan(System.BatteryLevel,0)</visible>
 				</control>
 				<control type="radiobutton" id="1015">
 					<description>Enable Autocompletions for Keyboard Dialog</description>
 					<include>SettingsContentRadioBtn</include>
 					<label>$LOCALIZE[31024]</label>
 					<selected>!Skin.HasSetting(EnableKeyboardAutocompletions)</selected>
-					<onclick condition="System.HasAddon(plugin.program.autocompletion)">Skin.ToggleSetting(EnableKeyboardAutocompletions)</onclick>
-					<onclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
+					<onclick>Skin.ToggleSetting(EnableKeyboardAutocompletions)</onclick>
+					<visible>System.HasAddon(plugin.program.autocompletion)</visible>
 				</control>
 				<control type="button" id="1016">
 					<description>Startup Label</description>
@@ -115,28 +115,26 @@
 					<description>Enable splash screen (photo, video or music)</description>
 					<include>SettingsContentRadioBtn</include>
 					<label>$LOCALIZE[31100]$INFO[Skin.String(SplashScreen),: [COLOR=DefaultColor2],[/COLOR]]</label>
-					<onclick condition="System.HasAddon(script.skin.helper.service) + !Skin.String(SplashScreen)">Skin.SetFile(SplashScreen)</onclick>
-					<onclick condition="System.HasAddon(script.skin.helper.service) + Skin.String(SplashScreen)">Skin.Reset(SplashScreen)</onclick>
-					<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+					<onclick condition="!Skin.String(SplashScreen)">Skin.SetFile(SplashScreen)</onclick>
+					<onclick condition="Skin.String(SplashScreen)">Skin.Reset(SplashScreen)</onclick>
 					<selected>Skin.String(SplashScreen)</selected>
+					<visible>System.HasAddon(script.skin.helper.service)</visible>
 				</control>
 				<control type="button" id="1018">
 					<description>Splash screen image duration</description>
 					<include>SettingsContentBtn</include>
 					<label>$LOCALIZE[31101]: [COLOR=DefaultColor2]$VAR[SplashScreenImageDuration] $LOCALIZE[31992][/COLOR]</label>
-					<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.SetNumeric(SplashScreenImageDuration)</onclick>
-					<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
-					<visible>String.EndsWith(Skin.String(SplashScreen),.jpg) | String.EndsWith(Skin.String(SplashScreen),.jpeg) | String.Contains(Skin.EndsWith(SplashScreen),.png) | String.EndsWith(Skin.String(SplashScreen),.tiff) | String.EndsWith(Skin.String(SplashScreen),.tif) | String.EndsWith(Skin.String(SplashScreen),.bmp) | String.EndsWith(Skin.String(SplashScreen),.gif)</visible>
+					<onclick>Skin.SetNumeric(SplashScreenImageDuration)</onclick>
+					<visible>System.HasAddon(script.skin.helper.service) + [SubString(Skin.String(SplashScreen),.jpg,Right) | SubString(Skin.String(SplashScreen),.jpeg,Right) | SubString(Skin.String(SplashScreen),.png,Right) | SubString(Skin.String(SplashScreen),.tiff,Right) | SubString(Skin.String(SplashScreen),.tif,Right) | SubString(Skin.String(SplashScreen),.bmp,Right) | SubString(Skin.String(SplashScreen),.gif,Right)]</visible>
 				</control>
 				<control type="button" id="1019">
 					<description>Preview</description>
 					<textoffsetx>20</textoffsetx>
 					<include>SettingsContentBtn</include>
 					<label>$LOCALIZE[1000]</label>
-					<onclick condition="System.HasAddon(script.skin.helper.service) + ![String.EndsWith(Skin.String(SplashScreen),.jpg) | String.EndsWith(Skin.String(SplashScreen),.jpeg) | String.EndsWith(Skin.String(SplashScreen),.png) | String.EndsWith(Skin.String(SplashScreen),.tiff) | String.EndsWith(Skin.String(SplashScreen),.tif) | String.EndsWith(Skin.String(SplashScreen),.bmp) | String.EndsWith(Skin.String(SplashScreen),.gif)]">PlayMedia($INFO[Skin.String(SplashScreen)])</onclick>
-					<onclick condition="System.HasAddon(script.skin.helper.service) + [String.EndsWith(Skin.String(SplashScreen),.jpg) | String.EndsWith(Skin.String(SplashScreen),.jpeg) | String.EndsWith(Skin.String(SplashScreen),.png) | String.EndsWith(Skin.String(SplashScreen),.tiff) | String.EndsWith(Skin.String(SplashScreen),.tif) | String.EndsWith(Skin.String(SplashScreen),.bmp) | String.EndsWith(Skin.String(SplashScreen),.gif)]">ShowPicture($INFO[Skin.String(SplashScreen)])</onclick>
-					<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
-					<visible>!String.IsEmpty(Skin.String(SplashScreen))</visible>
+					<onclick condition="![SubString(Skin.String(SplashScreen),.jpg,Right) | SubString(Skin.String(SplashScreen),.jpeg,Right) | SubString(Skin.String(SplashScreen),.png,Right) | SubString(Skin.String(SplashScreen),.tiff,Right) | SubString(Skin.String(SplashScreen),.tif,Right) | SubString(Skin.String(SplashScreen),.bmp,Right) | SubString(Skin.String(SplashScreen),.gif,Right)]">PlayMedia($INFO[Skin.String(SplashScreen)])</onclick>
+					<onclick condition="SubString(Skin.String(SplashScreen),.jpg,Right) | SubString(Skin.String(SplashScreen),.jpeg,Right) | SubString(Skin.String(SplashScreen),.png,Right) | SubString(Skin.String(SplashScreen),.tiff,Right) | SubString(Skin.String(SplashScreen),.tif,Right) | SubString(Skin.String(SplashScreen),.bmp,Right) | SubString(Skin.String(SplashScreen),.gif,Right)">ShowPicture($INFO[Skin.String(SplashScreen)])</onclick>
+					<visible>!IsEmpty(Skin.String(SplashScreen)) + System.HasAddon(script.skin.helper.service)</visible>
 				</control>
 			</control>
 		</control>

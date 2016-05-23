@@ -32,7 +32,7 @@
 					<bordertexture border="4">covers/cover-case2.png</bordertexture>
 					<bordersize>50</bordersize>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 					<animation effect="fade" end="70" condition="true">Conditional</animation>
 				</control>
 			</control>
@@ -49,7 +49,7 @@
 					<font>FullMediaInfoTitleFont3</font>
 					<textcolor>MediaInfoTitleColor</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
-					<label>[UPPERCASE]$INFO[ListItem.AddonName][/UPPERCASE]</label>
+					<label>[UPPERCASE]$INFO[ListItem.Property(Addon.Name)][/UPPERCASE]</label>
 					<scroll>true</scroll>
 				</control>
 				
@@ -69,7 +69,7 @@
 					<font>FullMediaInfoTitleFont2</font>
 					<textcolor>MediaInfoTitleColor2</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
-					<label fallback="31000">[UPPERCASE]$INFO[ListItem.AddonType][/UPPERCASE]</label>
+					<label fallback="31000">[UPPERCASE]$INFO[ListItem.Property(Addon.Type)][/UPPERCASE]</label>
 				</control>
 				
 				<control type="image">
@@ -146,6 +146,7 @@
 						<animation effect="fade" start="100" end="0" condition="Control.HasFocus(901)">Conditional</animation>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>720</width>
 						<height>31</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -179,13 +180,13 @@
 					<item id="1">
 						<description>Author</description>
 						<label>$LOCALIZE[21863]</label>
-						<label2>$INFO[ListItem.AddonCreator]</label2>
+						<label2>$INFO[ListItem.Property(Addon.Creator)]</label2>
 						<onclick>noop</onclick>
 					</item>
 					<item id="2">
 						<description>Version</description>
 						<label>$LOCALIZE[24051]</label>
-						<label2>$INFO[ListItem.AddonVersion]</label2>
+						<label2>$INFO[ListItem.Property(Addon.Version)]</label2>
 						<onclick>noop</onclick>
 					</item>
 					<item id="3">
@@ -203,42 +204,26 @@
 					<item id="5">
 						<description>Broken</description>
 						<label>$LOCALIZE[24098]</label>
-						<label2 fallback="106">$INFO[ListItem.AddonBroken]</label2>
+						<label2 fallback="106">$INFO[ListItem.Property(Addon.Broken)]</label2>
 						<onclick>noop</onclick>
 					</item>
 					<item id="6">
 						<description>Summary</description>
 						<label>$LOCALIZE[20037]</label>
-						<label2>$INFO[ListItem.AddonSummary]</label2>
+						<label2>$INFO[ListItem.Property(Addon.Summary)]</label2>
 						<onclick>noop</onclick>
 					</item>
 					<item id="7">
 						<description>Disclaimer</description>
 						<label>$LOCALIZE[24052]</label>
-						<label2 fallback="16018">$INFO[ListItem.AddonDisclaimer]</label2>
+						<label2 fallback="16018">$INFO[ListItem.Property(Addon.Disclaimer)]</label2>
 						<onclick>noop</onclick>
-						<visible>String.IsEmpty(ListItem.AddonLastUpdated) + [String.IsEmpty(ListItem.AddonLastUsed) | String.IsEmpty(ListItem.AddonInstallDate)]</visible>
 					</item>
 					<item id="8">
-						<description>Last Updated</description>
-						<label>$LOCALIZE[31124]</label>
-						<label2>$INFO[ListItem.AddonLastUpdated]</label2>
+						<description>File Path</description>
+						<label>$LOCALIZE[21801]</label>
+						<label2>$INFO[ListItem.Property(Addon.Path)]</label2>
 						<onclick>noop</onclick>
-						<visible>!String.IsEmpty(ListItem.AddonLastUpdated)</visible>
-					</item>
-					<item id="9">
-						<description>Last Used</description>
-						<label>$LOCALIZE[12012]</label>
-						<label2>$INFO[ListItem.AddonLastUsed]</label2>
-						<onclick>noop</onclick>
-						<visible>!String.IsEmpty(ListItem.AddonLastUsed)</visible>
-					</item>
-					<item id="10">
-						<description>Install Date</description>
-						<label>$LOCALIZE[12013]</label>
-						<label2>$INFO[ListItem.AddonInstallDate]</label2>
-						<onclick>noop</onclick>
-						<visible>String.IsEmpty(ListItem.AddonLastUsed) + !String.IsEmpty(ListItem.AddonInstallDate)</visible>
 					</item>
 				</content>
 			</control>
@@ -261,7 +246,7 @@
 				<font>FullMediaInfoDescFont</font>
 				<textcolor>MediaInfoColor</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
-				<label>$INFO[ListItem.AddonDescription]</label>
+				<label>$INFO[ListItem.Property(Addon.Description)]</label>
 				<align>justify</align>
 				<pagecontrol>61</pagecontrol>
 				<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
@@ -278,13 +263,25 @@
 				<spinheight>30</spinheight>
 				<onup>901</onup>
 				<onleft>901</onleft>
-				<visible>Integer.IsGreater(Container(4).NumPages,1) + Control.IsVisible(4)</visible>
+				<visible>IntegerGreaterThan(Container(4).NumPages,1) + Control.IsVisible(4)</visible>
 			</control>
 		</control>
 		
-		<include content="MenubarTopbar">
-			<param name="Menubar" value="AddonInfoMenuBar" />
-			<param name="Breadcrumbs" value="BreadCrumbMediaInfo" />
-		</include>
+		<control type="group" id="505">
+			<description>Menu Bar Area</description>
+			<depth>DepthMenuBar</depth>
+			<top>MenuBarOffsetY</top>
+			<include>MenuBarImage</include>
+			<include>MenuBarOpenCloseAnim2</include>
+			<include>AddonInfoMenuBar</include>
+		</control>
+		
+		<control type="group">
+			<description>Top Bar Area</description>
+			<depth>DepthTopBar</depth>
+			<include>TopBarImage</include>
+			<include>BreadCrumbMediaInfo</include>
+			<include>Notifications</include>
+		</control>
 	</controls>
 </window>

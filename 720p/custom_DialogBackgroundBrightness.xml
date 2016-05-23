@@ -12,21 +12,30 @@
 			<depth>DepthDialog</depth>
 			<include>DialogOpenCloseAnim</include>
 			
-			<include content="DialogWithCloseBtnLabel" condition="!Skin.String(BrightnessVar,Fanart)">
-				<param name="width" value="350"/>
-				<param name="height" value="519" />
-				<param name="left" value="290" />
-				<param name="labelwidth" value="270" />
-				<param name="label" value="$LOCALIZE[31060]" />
-			</include>
+			<control type="image">
+				<width>350</width>
+				<height>519</height>
+				<texture border="50,70,50,75">panels/dialog-background.png</texture>
+			</control>
+
+			<control type="button">
+				<left>290</left>
+				<include>DialogCloseBtn</include>
+			</control>
 			
-			<include content="DialogWithCloseBtnLabel" condition="Skin.String(BrightnessVar,Fanart)">
-				<param name="width" value="350"/>
-				<param name="height" value="519" />
-				<param name="left" value="290" />
-				<param name="labelwidth" value="270" />
-				<param name="label" value="$LOCALIZE[31059]" />
-			</include>
+			<control type="label">
+				<width>270</width>
+				<include>DialogTitle</include>
+				<label>$LOCALIZE[31060]</label>
+				<visible>!Skin.String(BrightnessVar,Fanart)</visible>
+			</control>
+			
+			<control type="label">
+				<width>270</width>
+				<include>DialogTitle</include>
+				<label>$LOCALIZE[31059]</label>
+				<visible>Skin.String(BrightnessVar,Fanart)</visible>
+			</control>
 
 			<control type="grouplist" id="100">
 				<left>DialogMarginOffsetX</left>

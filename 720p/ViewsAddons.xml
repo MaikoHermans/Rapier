@@ -31,17 +31,19 @@
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<animation effect="fade" end="40" condition="true">Conditional</animation>
 					</control>	
 					<control type="image">
 						<description>Cover Case</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
@@ -50,6 +52,7 @@
 					</control>
 					<control type="image">
 						<description>Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
@@ -59,24 +62,26 @@
 					</control>
 					<control type="image">
 						<description>Dim</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<texture background="true">dim.png</texture>
 						<aspectratio>stretch</aspectratio>
 						<bordersize>5</bordersize>
-						<visible>!String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>!IsEmpty(ListItem.Thumb)</visible>
 						<include>CoverDimAnim</include>
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<animation effect="fade" end="40" condition="true">Conditional</animation>
 					</control>									
 					<control type="label">
@@ -99,7 +104,7 @@
 						<font>WideListFont3</font>
 						<textcolor>ListColor3</textcolor>
 						<shadowcolor>ShadowColor</shadowcolor>
-						<label>$INFO[ListItem.AddonVersion]</label>
+						<label>$INFO[ListItem.Property(Addon.Version)]</label>
 					</control>
 					<control type="label">
 						<description>ID</description>
@@ -119,7 +124,7 @@
 						<font>WideListFont3</font>
 						<textcolor>ListColor2</textcolor>
 						<shadowcolor>ShadowColor</shadowcolor>
-						<label>$INFO[ListItem.AddonCreator]</label>			
+						<label>$INFO[ListItem.Property(Addon.Creator)]</label>			
 					</control>
 					<control type="label">
 						<description>Type</description>
@@ -130,7 +135,7 @@
 						<font>WideListFont2</font>
 						<textcolor>ListColor</textcolor>
 						<shadowcolor>ShadowColor</shadowcolor>
-						<label>[UPPERCASE]$INFO[ListItem.AddonType][/UPPERCASE]</label>
+						<label>[UPPERCASE]$INFO[ListItem.Property(Addon.Type)][/UPPERCASE]</label>
 						<aligny>center</aligny>
 					</control>
 					<control type="textbox">
@@ -142,7 +147,7 @@
 						<font>MediaInfoDescFont</font>
 						<textcolor>ListColor2</textcolor>
 						<shadowcolor>ShadowColor</shadowcolor>
-						<label fallback="31204">$INFO[ListItem.AddonDescription]</label>
+						<label fallback="31204">$INFO[ListItem.Property(Addon.Description)]</label>
 						<align>justify</align>
 						<wrapmultiline>true</wrapmultiline>
 					</control>
@@ -189,6 +194,7 @@
 					</control>
 					<control type="image">
 						<description>Cover Case</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
@@ -198,6 +204,7 @@
 					</control>
 					<control type="image">
 						<description>Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
@@ -208,13 +215,14 @@
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">WideListViewCoverFocusAnim</include>
 					</control>									
 					<control type="label">
@@ -238,7 +246,7 @@
 						<font>WideListFont3</font>
 						<textcolor>ListColor3</textcolor>
 						<shadowcolor>ShadowColor</shadowcolor>
-						<label>$INFO[ListItem.AddonVersion]</label>
+						<label>$INFO[ListItem.Property(Addon.Version)]</label>
 					</control>
 					<control type="label">
 						<description>ID</description>
@@ -258,7 +266,7 @@
 						<font>WideListFont3</font>
 						<textcolor>ListColor2</textcolor>
 						<shadowcolor>ShadowColor</shadowcolor>
-						<label>$INFO[ListItem.AddonCreator]</label>			
+						<label>$INFO[ListItem.Property(Addon.Creator)]</label>			
 					</control>
 					<control type="label">
 						<description>Type</description>
@@ -269,7 +277,7 @@
 						<font>WideListFont2</font>
 						<textcolor>SelectedColor2</textcolor>
 						<shadowcolor>ShadowColor</shadowcolor>
-						<label>[UPPERCASE]$INFO[ListItem.AddonType][/UPPERCASE]</label>
+						<label>[UPPERCASE]$INFO[ListItem.Property(Addon.Type)][/UPPERCASE]</label>
 						<aligny>center</aligny>
 					</control>
 					<control type="textbox">
@@ -281,7 +289,7 @@
 						<font>MediaInfoDescFont</font>
 						<textcolor>MediaInfoColor</textcolor>
 						<shadowcolor>ShadowColor</shadowcolor>
-						<label fallback="31204">$INFO[ListItem.AddonDescription]</label>
+						<label fallback="31204">$INFO[ListItem.Property(Addon.Description)]</label>
 						<align>justify</align>
 						<wrapmultiline>true</wrapmultiline>
 						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
@@ -326,7 +334,7 @@
 			<include>ListInfoViewContentPanel</include>
 			
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.AddonName)</visible>
+				<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 				
 				<control type="image">
 					<description>Cover Background</description>
@@ -349,7 +357,7 @@
 					<bordersize>40</bordersize>	
 					<aspectratio>keep</aspectratio>
 					<fadetime>IconCrossfadeTime</fadetime>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 					<animation effect="fade" end="60" condition="true">Conditional</animation>
 				</control>
 				
@@ -374,7 +382,7 @@
 					<font>MediaInfoFont2</font>
 					<textcolor>MediaInfoItemColor2</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
-					<label>[UPPERCASE]$INFO[ListItem.AddonType][/UPPERCASE]</label>
+					<label>[UPPERCASE]$INFO[ListItem.Property(Addon.Type)][/UPPERCASE]</label>
 					<scroll>true</scroll>
 				</control>
 				
@@ -388,7 +396,7 @@
 					<textcolor>MediaInfoColor</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
 					<align>justify</align>
-					<label fallback="31204">$INFO[ListItem.AddonDescription]</label>
+					<label fallback="31204">$INFO[ListItem.Property(Addon.Description)]</label>
 					<wrapmultiline>true</wrapmultiline>
 					<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
 					<visible>!Skin.HasSetting(HideAddonsListInfoDescription) + !Container.OnNext + !Container.OnPrevious</visible> 
@@ -403,7 +411,7 @@
 					<align>center</align>
 					<orientation>horizontal</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
-					<visible>!String.IsEmpty(ListItem.AddonName)</visible>
+					<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 					<control type="label">
 						<description>Author</description>
 						<width min="0" max="110">auto</width>
@@ -415,7 +423,7 @@
 						<width min="0" max="174">auto</width>
 						<scroll>true</scroll>
 						<include>ListInfoViewCatValueLabel</include>
-						<label fallback="31001">$INFO[ListItem.AddonCreator]</label>
+						<label fallback="31001">$INFO[ListItem.Property(Addon.Creator)]</label>
 					</control>
 					<include>ListInfoViewDot</include>
 					<control type="label">
@@ -428,7 +436,7 @@
 						<description>Version Value</description>
 						<width min="0" max="110">auto</width>
 						<include>ListInfoViewCatValueLabel</include>
-						<label fallback="31001">$INFO[ListItem.AddonVersion]</label>
+						<label fallback="31001">$INFO[ListItem.Property(Addon.Version)]</label>
 					</control>
 					<include>ListInfoViewDot</include>
 					<control type="label">
@@ -461,6 +469,7 @@
 				<onright>150</onright>
 				<itemlayout height="37">
 					<control type="image">
+						<left>0</left>
 						<width>505</width>
 						<height>37</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
@@ -502,12 +511,14 @@
 				</itemlayout>		
 				<focusedlayout height="37">	
 					<control type="image">
+						<left>0</left>
 						<width>505</width>
 						<height>37</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>505</width>
 						<height>36</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -517,6 +528,7 @@
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewScrollAnim</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>505</width>
 						<height>36</height>	
 						<texture border="4">views/list-alt-focus.png</texture>
@@ -636,6 +648,7 @@
 		</control>
 					
 		<control type="image">
+			<left>0</left>
 			<top>270</top>
 			<width>1280</width>
 			<height>131</height>	
@@ -655,7 +668,7 @@
 			<label>$INFO[ListItem.Label]</label>
 			<aligny>center</aligny>
 			<scroll>true</scroll>
-			<visible>String.IsEmpty(ListItem.AddonName)</visible>
+			<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
 		</control>
 		
 		<control type="label">
@@ -667,13 +680,14 @@
 			<font>WrapListFont</font>
 			<textcolor>DefaultColor</textcolor>
 			<shadowcolor>ShadowColor</shadowcolor>
-			<label>$INFO[ListItem.AddonName]</label>
+			<label>$INFO[ListItem.Property(Addon.Name)]</label>
 			<aligny>center</aligny>
 			<scroll>true</scroll>
-			<visible>!String.IsEmpty(ListItem.AddonName)</visible>
+			<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 		</control>
 		
 		<control type="image">
+			<left>0</left>
 			<top>303</top>
 			<width>1280</width>
 			<height>2</height>
@@ -688,7 +702,7 @@
 			<width>765</width>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<visible>!String.IsEmpty(ListItem.AddonName)</visible>
+			<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 			<control type="label">
 				<description>Author</description>
 				<width min="0" max="110">auto</width>
@@ -699,7 +713,7 @@
 				<description>Author Value</description>
 				<width min="0" max="310">auto</width>
 				<include>WrapInfoViewCatValueLabel</include>
-				<label fallback="31001">$INFO[ListItem.AddonCreator]</label>
+				<label fallback="31001">$INFO[ListItem.Property(Addon.Creator)]</label>
 			</control>
 			<include>WrapInfoViewDot</include>
 			<control type="label">
@@ -712,7 +726,7 @@
 				<description>Version Value</description>
 				<width min="0" max="110">auto</width>
 				<include>WrapInfoViewCatValueLabel</include>
-				<label fallback="31001">$INFO[ListItem.AddonVersion]</label>
+				<label fallback="31001">$INFO[ListItem.Property(Addon.Version)]</label>
 			</control>
 			<include>WrapInfoViewDot</include>
 			<control type="label">
@@ -730,7 +744,7 @@
 		</control>
 	
 		<control type="group">
-			<visible>!String.IsEmpty(ListItem.AddonName) + !Skin.HasSetting(HideAddonsWrapListMediaInfo)</visible>
+			<visible>!IsEmpty(ListItem.Property(Addon.Name)) + !Skin.HasSetting(HideAddonsWrapListMediaInfo)</visible>
 			<depth>DepthContent+</depth>
 
 			<control type="textbox">
@@ -744,7 +758,7 @@
 				<textcolor>MediaInfoColor</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 				<align>justify</align>
-				<label fallback="31204">$INFO[ListItem.AddonDescription]</label>
+				<label fallback="31204">$INFO[ListItem.Property(Addon.Description)]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
 				<visible>!Skin.HasSetting(HideAddonsWrapListInfoDescription) + !Container.OnNext + !Container.OnPrevious</visible>
@@ -757,13 +771,14 @@
 				
 				<control type="label">
 					<description>Type</description>
+					<left>0</left>
 					<top>10</top>
 					<width>204</width>
 					<font>MediaInfoFont2</font>
 					<textcolor>WhiteColor</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
 					<align>center</align>
-					<label>[UPPERCASE]$INFO[ListItem.AddonType][/UPPERCASE]</label>
+					<label>[UPPERCASE]$INFO[ListItem.Property(Addon.Type)][/UPPERCASE]</label>
 				</control>
 			</control>
 		</control>
@@ -804,7 +819,7 @@
 					<texture>dim.png</texture>
 					<bordersize>9</bordersize>
 					<aspectratio>stretch</aspectratio>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 				</control>		
 				<control type="image">
 					<description>Default Cover</description>
@@ -813,7 +828,7 @@
 					<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 					<bordersize>22</bordersize>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 					<animation effect="fade" end="30" condition="true">Conditional</animation>
 				</control>	
 				<control type="image">
@@ -856,7 +871,7 @@
 						<texture>dim.png</texture>
 						<bordersize>10</bordersize>
 						<aspectratio>stretch</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 					</control>		
 					<control type="image">
 						<description>Default Cover</description>
@@ -865,7 +880,7 @@
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<bordersize>22</bordersize>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 					</control>
 					<control type="image">
 						<description>Reflection</description>
@@ -921,6 +936,7 @@
 		</control>
 		
 		<control type="image">
+			<left>0</left>
 			<top>209</top>
 			<width>1280</width>
 			<height>167</height>	
@@ -937,12 +953,13 @@
 			<font>WrapListFont</font>
 			<textcolor>DefaultColor</textcolor>
 			<shadowcolor>ShadowColor</shadowcolor>
-			<label>$INFO[ListItem.AddonName]</label>
+			<label>$INFO[ListItem.Property(Addon.Name)]</label>
 			<aligny>center</aligny>
 			<scroll>true</scroll>
 		</control>
 		
 		<control type="image">
+			<left>0</left>
 			<top>242</top>
 			<width>1280</width>
 			<height>2</height>
@@ -957,7 +974,7 @@
 			<width>765</width>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<visible>!String.IsEmpty(ListItem.AddonName)</visible>
+			<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 			<control type="label">
 				<description>Author</description>
 				<width min="0" max="110">auto</width>
@@ -968,7 +985,7 @@
 				<description>Author Value</description>
 				<width min="0" max="310">auto</width>
 				<include>WrapInfoViewCatValueLabel</include>
-				<label fallback="31001">$INFO[ListItem.AddonCreator]</label>
+				<label fallback="31001">$INFO[ListItem.Property(Addon.Creator)]</label>
 			</control>
 			<include>WrapInfoViewDot</include>
 			<control type="label">
@@ -981,7 +998,7 @@
 				<description>Version Value</description>
 				<width min="0" max="110">auto</width>
 				<include>WrapInfoViewCatValueLabel</include>
-				<label fallback="31001">$INFO[ListItem.AddonVersion]</label>
+				<label fallback="31001">$INFO[ListItem.Property(Addon.Version)]</label>
 			</control>
 			<include>WrapInfoViewDot</include>
 			<control type="label">
@@ -999,7 +1016,7 @@
 		</control>
 		
 		<control type="group">
-			<visible>!String.IsEmpty(ListItem.AddonName) + !Skin.HasSetting(HideAddonsWrapListMediaInfo)</visible>
+			<visible>!IsEmpty(ListItem.Property(Addon.Name)) + !Skin.HasSetting(HideAddonsWrapListMediaInfo)</visible>
 			<depth>DepthContent+</depth>
 
 			<control type="textbox">
@@ -1012,7 +1029,7 @@
 				<textcolor>MediaInfoColor</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 				<align>justify</align>
-				<label fallback="31204">$INFO[ListItem.AddonDescription]</label>
+				<label fallback="31204">$INFO[ListItem.Property(Addon.Description)]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
 				<visible>!Skin.HasSetting(HideAddonsWrapListInfoDescription) + !Container.OnNext + !Container.OnPrevious</visible>
@@ -1025,13 +1042,14 @@
 				
 				<control type="label">
 					<description>Type</description>
+					<left>0</left>
 					<top>10</top>
 					<width>268</width>
 					<font>MediaInfoFont2</font>
 					<textcolor>WhiteColor</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
 					<align>center</align>
-					<label>[UPPERCASE]$INFO[ListItem.AddonType][/UPPERCASE]</label>
+					<label>[UPPERCASE]$INFO[ListItem.Property(Addon.Type)][/UPPERCASE]</label>
 				</control>
 			</control>
 		</control>
@@ -1072,7 +1090,7 @@
 					<texture>dim.png</texture>
 					<bordersize>12</bordersize>
 					<aspectratio>stretch</aspectratio>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 				</control>				
 				<control type="image">
 					<description>Default Cover</description>
@@ -1082,7 +1100,7 @@
 					<bordersize>30</bordersize>
 					<aspectratio>keep</aspectratio>
 					<animation effect="fade" end="30" condition="true">Conditional</animation>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 				</control>			
 				<control type="image">
 					<description>Reflection</description>
@@ -1124,7 +1142,7 @@
 						<texture>dim.png</texture>
 						<bordersize>12</bordersize>
 						<aspectratio>stretch</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
@@ -1133,7 +1151,7 @@
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<bordersize>30</bordersize>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 					</control>			
 					<control type="image">
 						<description>Reflection</description>

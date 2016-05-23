@@ -1,4 +1,4 @@
----------- ABOUT RAPIER 10.x FOR KODI 17 KRYPTON----------------------------------------------------------------------------
+---------- ABOUT RAPIER 9.x FOR KODI 16 JARVIS----------------------------------------------------------------------------
 
 The goal is to provide a simple to use but clean and elegant interface that focuses on efficiency when browsing your media. 
 Important considerations are put on usability, performance, and providing the user with flexibility when it comes to customization. 
@@ -19,7 +19,7 @@ Can be installed through the official Kodi repository.
 
 DEVELOPMENT:
 
-https://github.com/gade01/Rapier
+https://github.com/gade01/Rapier/tree/Jarvis
 
 
 DEVELOPMENT REPOSITORY:
@@ -47,6 +47,7 @@ Manual installation can be done by moving the skin.rapier folder inside the zip 
 Please make sure you have the following scripts installed when doing it manually: 
 
 script.favourites v5.0.2
+script.artistslideshow v1.6.9
 script.artwork.downloader v13.0.0
 script.randomandlastitems v2.2.1
 script.tv.show.next.aired v6.0.10

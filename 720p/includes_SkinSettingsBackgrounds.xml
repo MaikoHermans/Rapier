@@ -52,9 +52,9 @@
 					<description>Fanart Refresh Interval</description>
 					<include>SettingsContentBtn</include>
 					<label>$LOCALIZE[31991] [COLOR DefaultColor2]$INFO[Skin.String(SkinHelper.RandomFanartDelay)] $LOCALIZE[31992][/COLOR]</label>
-					<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.SetNumeric(SkinHelper.RandomFanartDelay)</onclick>
-					<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+					<onclick>Skin.SetNumeric(SkinHelper.RandomFanartDelay)</onclick>
 					<enable>Skin.String(CustomVideosBGType,4) | Skin.String(CustomMusicBGType,4) | Skin.String(CustomMoviesBGType,4) | Skin.String(CustomTVShowsBGType,4) | Skin.String(CustomPVRBGType,4)</enable>
+					<visible>System.HasAddon(script.skin.helper.service)</visible>
 				</control>
 				<control type="button" id="3999">
 					<description>Custom Background Label</description>
@@ -79,16 +79,7 @@
 					<onclick>Skin.SetBool(ExpandedSettings)</onclick>
 					<onclick>Control.SetFocus(952)</onclick>
 				</control>
-				<control type="radiobutton" id="4012">
-					<description>Customize PVR Background Settings</description>
-					<include>SettingsContentExpandBtn</include>
-					<label>$LOCALIZE[19180]</label>
-					<selected>Skin.HasSetting(ExpandCustomPVRBGSettings)</selected>
-					<onclick>Skin.SetBool(ExpandCustomPVRBGSettings)</onclick>
-					<onclick>Skin.SetBool(ExpandedSettings)</onclick>
-					<onclick>Control.SetFocus(9941)</onclick>
-					<visible>Pvr.HasTVChannels</visible>
-				</control>
+				<include condition="System.GetBool(pvrmanager.enabled)">CustomPVRBGRadioBtn</include>
 				<control type="radiobutton" id="4002">
 					<description>Customize Videos Background Settings</description>
 					<include>SettingsContentExpandBtn</include>
@@ -144,7 +135,7 @@
 					<onclick>Skin.SetBool(ExpandCustomWeatherBGSettings)</onclick>
 					<onclick>Skin.SetBool(ExpandedSettings)</onclick>
 					<onclick>Control.SetFocus(951)</onclick>
-					<enable>!String.IsEmpty(Weather.Plugin)</enable>
+					<enable>!IsEmpty(Weather.Plugin)</enable>
 				</control>
 				<control type="radiobutton" id="4007">
 					<description>Customize General Background Settings</description>
@@ -341,10 +332,10 @@
 						<description>Fanart Image</description>
 						<include>SettingsCustomBGRadioBtn</include>
 						<selected>Skin.String(CustomMusicBGType,4)</selected>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.SetString(CustomMusicBGType,4)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.Reset(CustomMusicBGPath)</onclick>
-						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						<onclick>Skin.SetString(CustomMusicBGType,4)</onclick>
+						<onclick>Skin.Reset(CustomMusicBGPath)</onclick>
 						<label>$LOCALIZE[20445]</label>
+						<visible>System.HasAddon(script.skin.helper.service)</visible>
 					</control>
 				</control>
 					
@@ -511,10 +502,10 @@
 						<description>Fanart Image</description>
 						<include>SettingsCustomBGRadioBtn</include>
 						<selected>Skin.String(CustomPVRBGType,4)</selected>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.SetString(CustomPVRBGType,4)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.Reset(CustomPVRBGPath)</onclick>
-						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						<onclick>Skin.SetString(CustomPVRBGType,4)</onclick>
+						<onclick>Skin.Reset(CustomPVRBGPath)</onclick>
 						<label>$LOCALIZE[31923]</label>
+						<visible>System.HasAddon(script.skin.helper.service)</visible>
 					</control>
 				</control>
 
@@ -642,10 +633,10 @@
 						<description>Fanart Image</description>
 						<include>SettingsCustomBGRadioBtn</include>
 						<selected>Skin.String(CustomVideosBGType,4)</selected>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.SetString(CustomVideosBGType,4)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.Reset(CustomVideosBGPath)</onclick>
-						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						<onclick>Skin.SetString(CustomVideosBGType,4)</onclick>
+						<onclick>Skin.Reset(CustomVideosBGPath)</onclick>
 						<label>$LOCALIZE[20445]</label>
+						<visible>System.HasAddon(script.skin.helper.service)</visible>
 					</control>
 				</control>
 					
@@ -822,10 +813,10 @@
 						<description>Fanart Image</description>
 						<include>SettingsCustomBGRadioBtn</include>
 						<selected>Skin.String(CustomMoviesBGType,4)</selected>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.SetString(CustomMoviesBGType,4)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.Reset(CustomMoviesBGPath)</onclick>
-						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						<onclick>Skin.SetString(CustomMoviesBGType,4)</onclick>
+						<onclick>Skin.Reset(CustomMoviesBGPath)</onclick>
 						<label>$LOCALIZE[20445]</label>
+						<visible>System.HasAddon(script.skin.helper.service)</visible>
 					</control>
 				</control>
 				
@@ -972,7 +963,6 @@
 					<include>CustomImagePreviewOpenCloseAnim</include>
 				</control>
 				
-				
 				<control type="image">
 					<include>CustomImageDim</include>
 					<include>TVShowsBrightnessAnimations</include>
@@ -1018,10 +1008,10 @@
 						<description>Fanart Image</description>
 						<include>SettingsCustomBGRadioBtn</include>
 						<selected>Skin.String(CustomTVShowsBGType,4)</selected>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.SetString(CustomTVShowsBGType,4)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.service)">Skin.Reset(CustomTVShowsBGPath)</onclick>
-						<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+						<onclick>Skin.SetString(CustomTVShowsBGType,4)</onclick>
+						<onclick>Skin.Reset(CustomTVShowsBGPath)</onclick>
 						<label>$LOCALIZE[20445]</label>
+						<visible>System.HasAddon(script.skin.helper.service)</visible>
 					</control>
 				</control>
 					
@@ -1782,7 +1772,7 @@
 					<top>65</top>
 					<width>235</width>
 					<height>340</height>
-					<itemgap>11</itemgap>
+					<itemgap>15</itemgap>
 					<onup>4412</onup>
 					<ondown>4410</ondown>
 					<onleft>1951</onleft>
@@ -1801,6 +1791,7 @@
 						<onclick>Skin.SetString(CustomWeatherBGType,2)</onclick>
 						<onclick>Skin.Reset(CustomWeatherBGPath)</onclick>
 						<label>$LOCALIZE[31056]</label>
+						<animation effect="slide" end="0,-4" condition="System.HasAddon(script.image.resource.select)">Conditional</animation>
 					</control>
 					<control type="radiobutton" id="4312">
 						<description>Multi Image</description>
@@ -1809,6 +1800,7 @@
 						<onclick>Skin.SetString(CustomWeatherBGType,3)</onclick>
 						<onclick>Skin.Reset(CustomWeatherBGPath)</onclick>
 						<label>$LOCALIZE[31057]</label>
+						<animation effect="slide" end="0,-8" condition="System.HasAddon(script.image.resource.select)">Conditional</animation>
 					</control>
 					<control type="radiobutton" id="4313">
 						<description>Weather Fanart</description>
@@ -1817,22 +1809,25 @@
 						<onclick>Skin.SetString(CustomWeatherBGType,4)</onclick>
 						<onclick>Skin.Reset(CustomWeatherBGPath)</onclick>
 						<label>$LOCALIZE[33020] ($LOCALIZE[573])</label>
+						<animation effect="slide" end="0,-12" condition="System.HasAddon(script.image.resource.select)">Conditional</animation>
 					</control>
 					<control type="radiobutton" id="4314">
 						<description>Weather Fanart</description>
 						<include>SettingsCustomBGRadioBtn</include>
 						<selected>Skin.String(CustomWeatherBGType,5)</selected>
-						<onclick condition="System.HasAddon(script.image.resource.select)">Skin.SetString(CustomWeatherBGType,5)</onclick>
-						<onclick condition="System.HasAddon(script.image.resource.select)">Skin.Reset(CustomWeatherBGPath)</onclick>
-						<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+						<onclick>Skin.SetString(CustomWeatherBGType,5)</onclick>
+						<onclick>Skin.Reset(CustomWeatherBGPath)</onclick>
 						<label>$LOCALIZE[33020] ($LOCALIZE[24000])</label>
+						<animation effect="slide" end="0,-16" condition="true">Conditional</animation>
+						<visible>System.HasAddon(script.image.resource.select)</visible>
 					</control>
 				</control>
 				
 				<control type="grouplist" id="961">
 					<top>379</top>
 					<itemgap>0</itemgap>
-					<onup>4314</onup>
+					<onup condition="!System.HasAddon(script.image.resource.select)">4313</onup>
+					<onup condition="System.HasAddon(script.image.resource.select)">4314</onup>
 					<ondown>4310</ondown>
 					<onleft>1951</onleft>
 					<control type="button" id="4410">
@@ -1853,9 +1848,8 @@
 						<description>Resource Image Fanart Add-on Path</description>
 						<include>SettingsContentBtn</include>
 						<label>$LOCALIZE[24000] - [COLOR=DefaultColor2]$INFO[Skin.String(CustomWeatherBGPath.name)][/COLOR]</label>
-						<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=CustomWeatherBGPath&amp;type=resource.images.weatherfanart)</onclick>
-						<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
-						<visible>Skin.String(CustomWeatherBGType,5)</visible>
+						<onclick>RunScript(script.image.resource.select,property=CustomWeatherBGPath&amp;type=resource.images.weatherfanart)</onclick>
+						<visible>System.HasAddon(script.image.resource.select) + Skin.String(CustomWeatherBGType,5)</visible>
 					</control>
 					<control type="button" id="4412">
 						<description>Background Brightness</description>
@@ -1910,8 +1904,21 @@
 		<pulseonselect>false</pulseonselect>
 	</include>
 	
+	<include name="CustomPVRBGRadioBtn">
+		<control type="radiobutton" id="4012">
+			<description>Customize PVR Background Settings</description>
+			<include>SettingsContentExpandBtn</include>
+			<label>$LOCALIZE[19180]</label>
+			<selected>Skin.HasSetting(ExpandCustomPVRBGSettings)</selected>
+			<onclick>Skin.SetBool(ExpandCustomPVRBGSettings)</onclick>
+			<onclick>Skin.SetBool(ExpandedSettings)</onclick>
+			<onclick>Control.SetFocus(9941)</onclick>
+		</control>
+	</include>
+	
 	<include name="CustomImagePreviewBG">
 		<control type="image">
+			<left>0</left>
 			<top>65</top>
 			<width>500</width>
 			<height>294</height>

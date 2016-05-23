@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window>
+<window id="6">
 	<defaultcontrol always="true">500</defaultcontrol>
 	<menucontrol>850</menucontrol>
-	<views>50,52,63,77</views>
+	<views>50,52</views>
 	<onload>Skin.Reset(ShowMediaExtraOptions)</onload>
 	
 	<controls>
 		<control type="group">
 			<depth>DepthBackground</depth>
 			<include>BackgroundDefault</include>
-			<include condition="[[!String.IsEmpty(Skin.String(CustomVideosBGPath)) + [Skin.String(CustomVideosBGType,2) | Skin.String(CustomVideosBGType,3)]] 
-			| Skin.String(CustomVideosBGType,4)] + Skin.HasSetting(ApplyAllVideosCustomBG) + Window.IsActive(videoplaylist)">BackgroundVideos</include>
-			<include condition="[[!String.IsEmpty(Skin.String(CustomMusicBGPath)) + [Skin.String(CustomMusicBGType,2) | Skin.String(CustomMusicBGType,3)]] 
-			| Skin.String(CustomMusicBGType,4)] + Skin.HasSetting(ApplyAllMusicCustomBG) + Window.IsActive(musicplaylist)">BackgroundMusic</include>
+			<include condition="[[!IsEmpty(Skin.String(CustomVideosBGPath)) + [Skin.String(CustomVideosBGType,2) | Skin.String(CustomVideosBGType,3)]] 
+			| Skin.String(CustomVideosBGType,4)] + Skin.HasSetting(ApplyAllVideosCustomBG)">BackgroundVideos</include>
 			<include condition="!Skin.HasSetting(DisableVideoPlayingBG)">BackgroundVideoPlaying</include>
 			<include condition="!Skin.HasSetting(DisableMusicPlayingBG)">BackgroundMusicPlaying</include>
 			<include>BackgroundOpenCloseAnim</include>
 		</control>
 
-		<control type="group">   
-			<visible>!Window.IsActive(MusicInformation) + !Window.IsActive(SongInformation) + !Window.IsActive(MovieInformation)</visible>
+		<control type="group">
+			<visible>!Window.IsActive(MovieInformation)</visible>
 			<depth>DepthContent</depth>
 			<include>MediaInfoOpenCloseAnim</include>
 			<include>IconView</include> <!-- 50 -->
 			<include>ListView</include> <!-- 52 -->
-			<include>AlbumThumbsView</include> <!-- 63 -->
-			<include>MusicWideListView</include> <!-- 77 -->
-		</control>	
+		</control>
 		
 		<include>MediaMenuBar</include>
 		
@@ -36,8 +32,7 @@
 			<depth>DepthTopBar</depth>
 			<include>TopBarImage</include>
 			<include>TopBarOpenCloseAnim</include>
-			<include condition="Window.IsActive(videoplaylist)">BreadCrumbVideoPlaylist</include>
-			<include condition="Window.IsActive(musicplaylist)">BreadCrumbMusicPlaylist</include>
+			<include>BreadCrumbVideoPlaylist</include>
 			<include>Notifications</include>
 			<include>SortLetterNotification</include>
 		</control>

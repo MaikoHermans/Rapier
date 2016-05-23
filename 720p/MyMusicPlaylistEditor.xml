@@ -6,7 +6,7 @@
 		<control type="group">
 			<depth>DepthBackground</depth>
 			<include>BackgroundDefault</include>
-			<include condition="[[!String.IsEmpty(Skin.String(CustomMusicBGPath)) + [Skin.String(CustomMusicBGType,2) | Skin.String(CustomMusicBGType,3)]] 
+			<include condition="[[!IsEmpty(Skin.String(CustomMusicBGPath)) + [Skin.String(CustomMusicBGType,2) | Skin.String(CustomMusicBGType,3)]] 
 			| Skin.String(CustomMusicBGType,4)] + Skin.HasSetting(ApplyAllMusicCustomBG)">BackgroundMusic</include>
 			<include condition="!Skin.HasSetting(DisableVideoPlayingBG)">BackgroundVideoPlaying</include>
 			<include condition="!Skin.HasSetting(DisableMusicPlayingBG)">BackgroundMusicPlaying</include>
@@ -109,6 +109,7 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>470</width>
 						<height>36</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -118,6 +119,7 @@
 						<include>ListViewPlaylistEditorScrollAnim</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>470</width>
 						<height>36</height>	
 						<texture border="4">views/list-alt-focus.png</texture>
@@ -216,6 +218,7 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>470</width>
 						<height>36</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -225,6 +228,7 @@
 						<include>ListViewPlaylistEditorScrollAnim2</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>470</width>
 						<height>36</height>	
 						<texture border="4">views/list-alt-focus.png</texture>

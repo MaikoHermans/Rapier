@@ -10,17 +10,11 @@
 	<controls>
 		<control type="group">
 			<depth>DepthDialog</depth>
+			<include>ProgressDialogBox</include>
 			<include>DialogOpenCloseAnim</include>
-			
-			<control type="image">
-				<width>490</width>
-				<height>217</height>
-				<texture border="50,70,50,75">panels/dialog-background.png</texture>
-			</control>
 
 			<control type="label">
-				<width>410</width>
-				<include>DialogTitle</include>
+				<include>DialogTitle2</include>
 				<label>$LOCALIZE[559]</label>
 			</control>
 			
@@ -53,8 +47,8 @@
 					<description>No</description>
 					<include>DialogMenuBarBtn</include>
 					<onclick>PreviousMenu</onclick>
-					<onclick condition="String.Contains(Skin.String(DialogPresetsParam),DialogPresetsPlaylistMusic)">Skin.SetString(DialogPresetsItemPath,ActivateWindow(Music,$INFO[Skin.String(DialogPresetsItem)],Return))</onclick>
-					<onclick condition="String.Contains(Skin.String(DialogPresetsParam),DialogPresetsPlaylistVideos)">Skin.SetString(DialogPresetsItemPath,ActivateWindow(Videos,$INFO[Skin.String(DialogPresetsItem)],Return))</onclick>
+					<onclick condition="SubString(Skin.String(DialogPresetsParam),DialogPresetsPlaylistMusic)">Skin.SetString(DialogPresetsItemPath,ActivateWindow(Music,$INFO[Skin.String(DialogPresetsItem)],Return))</onclick>
+					<onclick condition="SubString(Skin.String(DialogPresetsParam),DialogPresetsPlaylistVideos)">Skin.SetString(DialogPresetsItemPath,ActivateWindow(Videos,$INFO[Skin.String(DialogPresetsItem)],Return))</onclick>
 					<label>$LOCALIZE[106]</label>
 				</control>
 			</control>

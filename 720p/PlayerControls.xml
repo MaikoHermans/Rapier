@@ -12,11 +12,7 @@
 	</coordinates>
 
 	<controls>
-		<include content="DialogWithCloseBtn4">
-			<param name="width" value="755"/>
-			<param name="height" value="317" />
-			<param name="left" value="695" />
-		</include>
+		<include>PlayerControlsDialogBox</include>
 
 		<control type="group">
 			<visible>Player.HasVideo + !VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes) + !VideoPlayer.Content(MusicVideos) + !VideoPlayer.Content(LiveTV)</visible>
@@ -40,7 +36,7 @@
 				<top>40</top>
 				<width>70</width>
 				<height>16</height>		
-				<texture background="true">$VAR[PlayerStarRating]</texture>
+				<texture background="true">$INFO[Player.StarRating]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<include>StarRatingFadeAnim</include>
 			</control>
@@ -53,7 +49,7 @@
 				<height>190</height>
 				<texture border="5">panels/panel-content-border.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 				<animation effect="fade" end="75" condition="true">Conditional</animation>
 			</control>
 
@@ -66,7 +62,7 @@
 				<texture>DefaultVideo.png</texture>
 				<bordersize>25</bordersize>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 			</control>
 
 			<control type="image">
@@ -113,7 +109,7 @@
 				<top>40</top>
 				<width>70</width>
 				<height>16</height>		
-				<texture background="true">$VAR[PlayerStarRating]</texture>
+				<texture background="true">$INFO[Player.StarRating]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<include>StarRatingFadeAnim</include>
 			</control>
@@ -129,7 +125,7 @@
 					<height>190</height>
 					<texture border="5">panels/panel-content-border.png</texture>
 					<aspectratio>stretch</aspectratio>
-					<visible>String.IsEmpty(MusicPlayer.Cover)</visible>
+					<visible>IsEmpty(MusicPlayer.Cover)</visible>
 					<animation effect="fade" end="75" condition="true">Conditional</animation>
 				</control>
 
@@ -140,7 +136,7 @@
 					<texture>DefaultAudio.png</texture>
 					<bordersize>25</bordersize>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(MusicPlayer.Cover)</visible>
+					<visible>IsEmpty(MusicPlayer.Cover)</visible>
 				</control>
 
 				<control type="image">
@@ -176,7 +172,7 @@
 					<texture diffuse="icons/cdart/cdart-mask.png">icons/cdart/cdart.png</texture>
 					<aspectratio>keep</aspectratio>
 					<include>CdArtImageRotateAnim</include>
-					<visible>String.IsEmpty(MusicPlayer.Cover)</visible>
+					<visible>IsEmpty(MusicPlayer.Cover)</visible>
 				</control>
 
 				<control type="image">
@@ -346,7 +342,7 @@
 				<top>40</top>
 				<width>70</width>
 				<height>16</height>		
-				<texture background="true">$VAR[PlayerStarRating]</texture>
+				<texture background="true">$INFO[Player.StarRating]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<include>StarRatingFadeAnim</include>
 			</control>
@@ -359,7 +355,7 @@
 				<height>190</height>
 				<texture border="5">panels/panel-content-border.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 				<animation effect="fade" end="75" condition="true">Conditional</animation>
 			</control>
 
@@ -372,7 +368,7 @@
 				<texture>DefaultVideo.png</texture>
 				<bordersize>25</bordersize>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 			</control>
 
 			<control type="image">
@@ -383,7 +379,7 @@
 				<height>190</height>
 				<texture diffuse="covers/player-control-media-cover-diffuse.png">$VAR[ClearImageOSD]</texture>
 				<aspectratio>keep</aspectratio>
-				<animation effect="slide" end="0,45" condition="Skin.HasSetting(ShowClearArtOSD) + !String.IsEmpty(Player.Art(clearart))">Conditional</animation>
+				<animation effect="slide" end="0,45" condition="Skin.HasSetting(ShowClearArtOSD) + !IsEmpty(Player.Art(clearart))">Conditional</animation>
 			</control>
 
 			<control type="grouplist">
@@ -540,7 +536,7 @@
 				<top>40</top>
 				<width>70</width>
 				<height>16</height>		
-				<texture background="true">$VAR[PlayerStarRating]</texture>
+				<texture background="true">$INFO[Player.StarRating]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<include>StarRatingFadeAnim</include>
 			</control>
@@ -553,7 +549,7 @@
 				<height>190</height>
 				<texture border="5">panels/panel-content-border.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 				<animation effect="fade" end="75" condition="true">Conditional</animation>
 			</control>
 
@@ -566,7 +562,7 @@
 				<texture>DefaultVideo.png</texture>
 				<bordersize>25</bordersize>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 			</control>
 
 			<control type="image">
@@ -577,7 +573,7 @@
 				<height>190</height>
 				<texture diffuse="covers/player-control-media-cover-diffuse.png">$VAR[ClearImageOSD]</texture>
 				<aspectratio>keep</aspectratio>
-				<animation effect="slide" end="0,45" condition="Skin.HasSetting(ShowClearArtOSD) + !String.IsEmpty(Player.Art(tvshow.clearart))">Conditional</animation>
+				<animation effect="slide" end="0,45" condition="Skin.HasSetting(ShowClearArtOSD) + !IsEmpty(Player.Art(tvshow.clearart))">Conditional</animation>
 			</control>
 
 			<control type="grouplist">
@@ -734,7 +730,7 @@
 				<top>40</top>
 				<width>70</width>
 				<height>16</height>		
-				<texture background="true">$VAR[PlayerStarRating]</texture>
+				<texture background="true">$INFO[Player.StarRating]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<include>StarRatingFadeAnim</include>
 			</control>
@@ -747,7 +743,7 @@
 				<height>190</height>
 				<texture border="5">panels/panel-content-border.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 				<animation effect="fade" end="75" condition="true">Conditional</animation>
 			</control>
 
@@ -760,7 +756,7 @@
 				<texture>DefaultVideo.png</texture>
 				<bordersize>25</bordersize>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 			</control>
 
 			<control type="image">
@@ -927,7 +923,7 @@
 				<top>40</top>
 				<width>70</width>
 				<height>16</height>		
-				<texture background="true">$VAR[PlayerStarRating]</texture>
+				<texture background="true">$INFO[Player.StarRating]</texture>
 				<aspectratio align="right">keep</aspectratio>
 				<include>StarRatingFadeAnim</include>
 			</control>
@@ -940,7 +936,7 @@
 				<height>190</height>
 				<texture border="5">panels/panel-content-border.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 				<animation effect="fade" end="75" condition="true">Conditional</animation>
 			</control>
 
@@ -953,7 +949,7 @@
 				<texture>DefaultVideo.png</texture>
 				<bordersize>25</bordersize>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(VideoPlayer.Cover)</visible>
+				<visible>IsEmpty(VideoPlayer.Cover)</visible>
 			</control>
 
 			<control type="image">
@@ -1148,6 +1144,9 @@
 				<width>185</width>
 				<height>12</height>
 				<action>seek</action>
+				<texturesliderbar border="4">controls/progress-background.png</texturesliderbar>
+				<textureslidernib border="2">-</textureslidernib>
+				<textureslidernibfocus border="2">controls/progress-nib-focus.png</textureslidernibfocus>
 			</control>
 		</control>
 

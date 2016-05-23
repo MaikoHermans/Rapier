@@ -32,13 +32,14 @@
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<animation effect="fade" end="40" condition="true">Conditional</animation>
 					</control>
 					<control type="label">
@@ -52,12 +53,13 @@
 						<shadowcolor>ShadowColor</shadowcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
-						<visible>String.IsEmpty(ListItem.Album)</visible>
+						<visible>IsEmpty(ListItem.Album)</visible>
 					</control>
 					<control type="group">
-						<visible>!String.IsEmpty(ListItem.Album)</visible>
+						<visible>!IsEmpty(ListItem.Album)</visible>
 						<control type="image">
 							<description>Cover Case</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -66,6 +68,7 @@
 						</control>
 						<control type="image">
 							<description>Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -75,24 +78,26 @@
 						</control>
 						<control type="image">
 							<description>Dim</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<texture background="true">dim.png</texture>
 							<aspectratio>stretch</aspectratio>
 							<bordersize>5</bordersize>
-							<visible>!String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
 							<include>CoverDimAnim</include>
 						</control>
 						<control type="image">
 							<description>Default Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<bordersize>10</bordersize>
 							<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
 							<animation effect="fade" end="40" condition="true">Conditional</animation>
 						</control>									
 						<control type="label">
@@ -124,7 +129,7 @@
 							<top>36</top>
 							<width>100</width>
 							<height>16</height>		
-							<texture background="true">$VAR[StarRating]</texture>
+							<texture background="true">$INFO[ListItem.StarRating]</texture>
 							<aspectratio align="left">keep</aspectratio>
 							<visible>!Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 							<include>StarRatingFadeAnim</include>
@@ -186,13 +191,14 @@
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<animation effect="fade" end="40" condition="true">Conditional</animation>
 					</control>
 					<control type="label">
@@ -206,12 +212,13 @@
 						<shadowcolor>ShadowColor</shadowcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
-						<visible>String.IsEmpty(ListItem.Title)</visible>
+						<visible>IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="group">
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
+						<visible>!IsEmpty(ListItem.Title)</visible>
 						<control type="image">
 							<description>Cover Case</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -220,6 +227,7 @@
 						</control>
 						<control type="image">
 							<description>Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -229,24 +237,26 @@
 						</control>
 						<control type="image">
 							<description>Dim</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<texture background="true">dim.png</texture> 
 							<aspectratio>stretch</aspectratio>
 							<bordersize>5</bordersize>
-							<visible>!String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
 							<include>CoverDimAnim</include>
 						</control>
 						<control type="image">
 							<description>Default Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<bordersize>10</bordersize>
 							<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
 							<animation effect="fade" end="40" condition="true">Conditional</animation>
 						</control>									
 						<control type="label">
@@ -278,7 +288,7 @@
 							<top>36</top>
 							<width>100</width>
 							<height>16</height>		
-							<texture background="true">$VAR[StarRating]</texture>
+							<texture background="true">$INFO[ListItem.StarRating]</texture>
 							<aspectratio align="left">keep</aspectratio>
 							<visible>!Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 							<include>StarRatingFadeAnim</include>
@@ -341,13 +351,14 @@
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<animation effect="fade" end="40" condition="true">Conditional</animation>
 					</control>
 					<control type="label">
@@ -361,12 +372,13 @@
 						<shadowcolor>ShadowColor</shadowcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
-						<visible>String.IsEmpty(ListItem.Artist)</visible>
+						<visible>IsEmpty(ListItem.Artist)</visible>
 					</control>
 					<control type="group">
-						<visible>!String.IsEmpty(ListItem.Artist)</visible>
+						<visible>!IsEmpty(ListItem.Artist)</visible>
 						<control type="image">
 							<description>Cover Case</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -375,6 +387,7 @@
 						</control>
 						<control type="image">
 							<description>Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -384,24 +397,26 @@
 						</control>
 						<control type="image">
 							<description>Dim</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<texture background="true">dim.png</texture>
 							<aspectratio>stretch</aspectratio>
 							<bordersize>5</bordersize>
-							<visible>!String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
 							<include>CoverDimAnim</include>
 						</control>
 						<control type="image">
 							<description>Default Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<bordersize>10</bordersize>
 							<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
 							<animation effect="fade" end="40" condition="true">Conditional</animation>
 						</control>									
 						<control type="label">
@@ -502,13 +517,14 @@
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">WideListViewCoverFocusAnim</include>
 					</control>
 					<control type="label">
@@ -523,12 +539,13 @@
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
-						<visible>String.IsEmpty(ListItem.Album)</visible>
+						<visible>IsEmpty(ListItem.Album)</visible>
 					</control>
 					<control type="group">
-						<visible>!String.IsEmpty(ListItem.Album)</visible>
+						<visible>!IsEmpty(ListItem.Album)</visible>
 						<control type="image">
 							<description>Cover Case</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -538,6 +555,7 @@
 						</control>
 						<control type="image">
 							<description>Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -548,13 +566,14 @@
 						</control>
 						<control type="image">
 							<description>Default Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<bordersize>10</bordersize>
 							<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
 							<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">WideListViewCoverFocusAnim</include>
 						</control>									
 						<control type="label">
@@ -587,7 +606,7 @@
 							<top>36</top>
 							<width>100</width>
 							<height>16</height>		
-							<texture background="true">$VAR[StarRating]</texture>
+							<texture background="true">$INFO[ListItem.StarRating]</texture>
 							<aspectratio align="left">keep</aspectratio>
 							<visible>!Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 							<include>StarRatingFadeAnim</include>
@@ -669,13 +688,14 @@
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">WideListViewCoverFocusAnim</include>
 					</control>
 					<control type="label">
@@ -690,12 +710,13 @@
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
-						<visible>String.IsEmpty(ListItem.Title)</visible>
+						<visible>IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="group">
-						<visible>!String.IsEmpty(ListItem.Title)</visible>
+						<visible>!IsEmpty(ListItem.Title)</visible>
 						<control type="image">
 							<description>Cover Case</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -705,6 +726,7 @@
 						</control>
 						<control type="image">
 							<description>Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -715,13 +737,14 @@
 						</control>
 						<control type="image">
 							<description>Default Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<bordersize>10</bordersize>
 							<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
 							<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">WideListViewCoverFocusAnim</include>
 						</control>									
 						<control type="label">
@@ -754,7 +777,7 @@
 							<top>36</top>
 							<width>100</width>
 							<height>16</height>		
-							<texture background="true">$VAR[StarRating]</texture>
+							<texture background="true">$INFO[ListItem.StarRating]</texture>
 							<aspectratio align="left">keep</aspectratio>
 							<visible>!Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 							<include>StarRatingFadeAnim</include>
@@ -835,13 +858,14 @@
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
+						<left>0</left>
 						<top>4</top>
 						<width>128</width>
 						<height>128</height>
 						<bordersize>10</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">WideListViewCoverFocusAnim</include>
 					</control>
 					<control type="label">
@@ -856,12 +880,13 @@
 						<label>$INFO[ListItem.Label]</label>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
-						<visible>String.IsEmpty(ListItem.Artist)</visible>
+						<visible>IsEmpty(ListItem.Artist)</visible>
 					</control>
 					<control type="group">
-						<visible>!String.IsEmpty(ListItem.Artist)</visible>
+						<visible>!IsEmpty(ListItem.Artist)</visible>
 						<control type="image">
 							<description>Cover Case</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -871,6 +896,7 @@
 						</control>
 						<control type="image">
 							<description>Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
@@ -881,13 +907,14 @@
 						</control>
 						<control type="image">
 							<description>Default Cover</description>
+							<left>0</left>
 							<top>4</top>
 							<width>128</width>
 							<height>128</height>
 							<bordersize>10</bordersize>
 							<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>String.IsEmpty(ListItem.Thumb)</visible>
+							<visible>IsEmpty(ListItem.Thumb)</visible>
 							<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">WideListViewCoverFocusAnim</include>
 						</control>									
 						<control type="label">
@@ -988,7 +1015,7 @@
 			<include>ListInfoViewContentPanel</include>
 			
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Album)</visible>
+				<visible>!IsEmpty(ListItem.Album)</visible>
 				
 				<control type="image">
 					<description>Cover Background</description>
@@ -1011,7 +1038,7 @@
 					<bordersize>40</bordersize>	
 					<aspectratio>keep</aspectratio>
 					<fadetime>IconCrossfadeTime</fadetime>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 					<animation effect="fade" end="60" condition="true">Conditional</animation>
 				</control>
 				
@@ -1175,7 +1202,7 @@
 			</control>
 			
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Artist) + Container.Content(Artists)</visible>
+				<visible>!IsEmpty(ListItem.Artist) + Container.Content(Artists)</visible>
 				
 				<control type="image">
 					<description>Cover Background</description>
@@ -1198,7 +1225,7 @@
 					<bordersize>40</bordersize>	
 					<aspectratio>keep</aspectratio>
 					<fadetime>IconCrossfadeTime</fadetime>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 					<animation effect="fade" end="60" condition="true">Conditional</animation>
 				</control>
 				
@@ -1257,35 +1284,35 @@
 						<width min="0" max="150">auto</width>
 						<include>ListInfoViewCatLabel</include>
 						<label>$LOCALIZE[21893]:</label>
-						<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+						<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 					</control>
 					<control type="label">
 						<description>Formed</description>
 						<width min="0" max="150">auto</width>
 						<include>ListInfoViewCatLabel</include>
 						<label>$LOCALIZE[21894]:</label>
-						<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+						<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 					</control>
 					<control type="label">
 						<description>Born Value</description>
 						<width min="0" max="300">auto</width>
 						<include>ListInfoViewCatValueLabel</include>
 						<label fallback="31001">$INFO[ListItem.Property(Artist_Born)]</label>
-						<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+						<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 					</control>
 					<control type="label">
 						<description>Formed Value</description>
 						<width min="0" max="300">auto</width>
 						<include>ListInfoViewCatValueLabel</include>
 						<label fallback="31001">$INFO[ListItem.Property(Artist_Formed)]</label>
-						<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+						<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 					</control>
 					<control type="label">
 						<description>No Value</description>
 						<width min="0" max="200">auto</width>
 						<include>ListInfoViewCatLabel</include>
 						<label>$LOCALIZE[21893]/$LOCALIZE[21894]: [COLOR=MediaInfoItemColor2]$LOCALIZE[31001][/COLOR]</label>
-						<visible>String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+						<visible>IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Formed))</visible>
 					</control>
 					<include>ListInfoViewDot</include>
 					<control type="label">
@@ -1319,6 +1346,7 @@
 				<visible>Container.Content(Albums) | Container.Content(Songs) | Container.Content(Artists)</visible>
 				<itemlayout height="37">
 					<control type="image">
+						<left>0</left>
 						<width>505</width>
 						<height>37</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
@@ -1375,20 +1403,22 @@
 						<top>10</top>
 						<width>100</width>
 						<height>16</height>		
-						<texture background="true">$VAR[StarRating]</texture>
+						<texture background="true">$INFO[ListItem.StarRating]</texture>
 						<aspectratio align="right">keep</aspectratio>
-						<visible>!Skin.HasSetting(DoNotUseStarRatingMusic) + !String.IsEmpty(ListItem.Album)</visible>
+						<visible>!Skin.HasSetting(DoNotUseStarRatingMusic) + !IsEmpty(ListItem.Album)</visible>
 						<include>StarRatingFadeAnim</include>
 					</control>
 				</itemlayout>		
 				<focusedlayout height="37">	
 					<control type="image">
+						<left>0</left>
 						<width>505</width>
 						<height>37</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>505</width>
 						<height>36</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -1398,6 +1428,7 @@
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewScrollAnim</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>505</width>
 						<height>36</height>	
 						<texture border="4">views/list-alt-focus.png</texture>
@@ -1458,9 +1489,9 @@
 							<top>10</top>
 							<width>100</width>
 							<height>16</height>		
-							<texture background="true">$VAR[StarRating]</texture>
+							<texture background="true">$INFO[ListItem.StarRating]</texture>
 							<aspectratio align="right">keep</aspectratio>
-							<visible>!Skin.HasSetting(DoNotUseStarRatingMusic) + !String.IsEmpty(ListItem.Album)</visible>
+							<visible>!Skin.HasSetting(DoNotUseStarRatingMusic) + !IsEmpty(ListItem.Album)</visible>
 						</control>
 					</control>
 				</focusedlayout>		
@@ -1492,64 +1523,236 @@
 			<include>ListInfo2MediaInfoPanelCommon</include>
 			
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Album)</visible>
+				<visible>!IsEmpty(ListItem.Album)</visible>
 				<include>ListInfo2PanelFanart</include>
 				
-				<include content="ListInfo2MediaInfoArea">
-					<param name="visible" value="Container.Content(Albums)" />
-					<param name="Grouplist1LabelWidth" value="110" />
-					<param name="Grouplist1Label" value="$LOCALIZE[557]" />
-					<param name="Grouplist1InfoWidth" value="310" />
-					<param name="Grouplist1Info" value="$INFO[ListItem.Artist]" />
-					<param name="Grouplist2LabelWidth" value="110" />
-					<param name="Grouplist2Label" value="$LOCALIZE[21899]" />
-					<param name="Grouplist2InfoWidth" value="310" />
-					<param name="Grouplist2Info" value="$INFO[ListItem.Property(Album_Label)]" />
-					<param name="Grouplist3LabelWidth" value="110" />
-					<param name="Grouplist3Label" value="$LOCALIZE[345]" />
-					<param name="Grouplist3InfoWidth" value="110" />
-					<param name="Grouplist3Info" value="$INFO[ListItem.Year]" />
-					<param name="Grouplist4LabelWidth" value="110" />
-					<param name="Grouplist4Label" value="$LOCALIZE[563]" />
-					<param name="Grouplist4InfoWidth" value="110" />
-					<param name="Grouplist4Info" value="$INFO[ListItem.Rating]" />
-				</include>
+				<control type="group">
+					<description>Media Info Area (Album)</description>
+					<left>38</left>
+					<top>430</top>
+					<visible>Container.Content(Albums)</visible>
+		
+					<control type="grouplist">
+						<description>Artist</description>
+						<left>10</left>
+						<top>0</top>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[557]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="310">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Artist]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Record Label</description>
+						<left>10</left>
+						<top>22</top>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[21899]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="310">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Property(Album_Label)]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Year</description>
+						<left>406</left>
+						<top>0</top>
+						<width>130</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[345]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Year]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Rating</description>
+						<left>406</left>
+						<top>22</top>
+						<width>130</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[563]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Rating]</label>
+						</control>
+					</control>
+				</control>
 				
-				<include content="ListInfo2MediaInfoArea">
-					<param name="visible" value="Container.Content(Songs)" />
-					<param name="Grouplist1LabelWidth" value="110" />
-					<param name="Grouplist1Label" value="$LOCALIZE[557]" />
-					<param name="Grouplist1InfoWidth" value="310" />
-					<param name="Grouplist1Info" value="$INFO[ListItem.Artist]" />
-					<param name="Grouplist2LabelWidth" value="110" />
-					<param name="Grouplist2Label" value="$LOCALIZE[558]" />
-					<param name="Grouplist2InfoWidth" value="310" />
-					<param name="Grouplist2Info" value="$INFO[ListItem.Album]" />
-					<param name="Grouplist3LabelWidth" value="110" />
-					<param name="Grouplist3Label" value="$LOCALIZE[345]" />
-					<param name="Grouplist3InfoWidth" value="110" />
-					<param name="Grouplist3Info" value="$INFO[ListItem.Year]" />
-					<param name="Grouplist4LabelWidth" value="110" />
-					<param name="Grouplist4Label" value="$LOCALIZE[563]" />
-					<param name="Grouplist4InfoWidth" value="110" />
-					<param name="Grouplist4Info" value="$INFO[ListItem.Rating]" />
-				</include>
+				<control type="group">
+					<description>Media Info Area (Song)</description>
+					<left>38</left>
+					<top>430</top>
+					<visible>Container.Content(Songs)</visible>
+					
+					<control type="grouplist">
+						<description>Artist</description>
+						<left>10</left>
+						<top>0</top>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[557]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="310">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Artist]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Album</description>
+						<left>10</left>
+						<top>22</top>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[558]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="310">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Album]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Year</description>
+						<left>406</left>
+						<top>0</top>
+						<width>130</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[345]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Year]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Rating</description>
+						<left>406</left>
+						<top>22</top>
+						<width>130</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[563]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Rating]</label>
+						</control>
+					</control>
+				</control>
 				
-				<include content="ListInfo2Plot">
-					<param name="fallback" value="31204" />
-					<param name="label" value="$INFO[ListItem.Property(Album_Description)]" />
-					<param name="visible" value="Container.Content(Albums) + !Container.OnNext + !Container.OnPrevious" />
-				</include>
+				<control type="textbox">
+					<description>Description</description>
+					<left>48</left>
+					<top>494</top>
+					<width>526</width>
+					<height>120</height>
+					<font>MediaInfoDescFont</font>
+					<textcolor>MediaInfoColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<align>justify</align>
+					<label fallback="31204">$INFO[ListItem.Property(Album_Description)]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<autoscroll time="2000" delay="6000" repeat="10000">!Skin.HasSetting(DoNotAutoScrollPlot)</autoscroll>
+					<visible>Container.Content(Albums) + !Container.OnNext + !Container.OnPrevious</visible>
+					<include>ControlsOpenCloseAnim</include>
+				</control>
 				
-				<include content="ListInfo2Plot">
-					<param name="fallback" value="31205" />
-					<param name="label" value="$INFO[ListItem.Comment]" />
-					<param name="visible" value="Container.Content(Songs) + !Skin.HasSetting(HideMusicListInfo2Description) + !Container.OnNext + !Container.OnPrevious" />
-				</include>
+				<control type="textbox">
+					<description>Song Comment</description>
+					<left>48</left>
+					<top>494</top>
+					<width>526</width>
+					<height>120</height>
+					<font>MediaInfoDescFont</font>
+					<textcolor>MediaInfoColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<align>justify</align>
+					<label fallback="31205">$INFO[ListItem.Comment]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<autoscroll time="2000" delay="6000" repeat="10000">!Skin.HasSetting(DoNotAutoScrollPlot)</autoscroll>
+					<visible>Container.Content(Songs) + !Skin.HasSetting(HideMusicListInfo2Description) + !Container.OnNext + !Container.OnPrevious</visible>
+					<include>ControlsOpenCloseAnim</include>
+				</control>
 			</control>
 			
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Artist) + Container.Content(Artists)</visible>
+				<visible>!IsEmpty(ListItem.Artist) + Container.Content(Artists)</visible>
 				<include>ListInfo2PanelFanart</include>
 
 				<control type="group">
@@ -1560,6 +1763,7 @@
 					<control type="grouplist">
 						<description>Born/Formed</description>
 						<left>10</left>
+						<top>0</top>
 						<orientation>horizontal</orientation>
 						<control type="label">
 							<width min="0" max="150">auto</width>
@@ -1567,7 +1771,7 @@
 							<textcolor>MediaInfoItemColor</textcolor>
 							<shadowcolor>ShadowColor</shadowcolor>
 							<label>$LOCALIZE[21893]:</label>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+							<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 						</control>
 						<control type="label">
 							<width min="0" max="150">auto</width>
@@ -1575,7 +1779,7 @@
 							<textcolor>MediaInfoItemColor</textcolor>
 							<shadowcolor>ShadowColor</shadowcolor>
 							<label>$LOCALIZE[21894]:</label>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+							<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 						</control>
 						<control type="label">
 							<width min="0" max="450">auto</width>
@@ -1583,7 +1787,7 @@
 							<textcolor>MediaInfoItemColor2</textcolor>
 							<shadowcolor>ShadowColor</shadowcolor>
 							<label>$INFO[ListItem.Property(Artist_Born)]</label>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+							<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 						</control>
 						<control type="label">
 							<width min="0" max="450">auto</width>
@@ -1591,7 +1795,7 @@
 							<textcolor>MediaInfoItemColor2</textcolor>
 							<shadowcolor>ShadowColor</shadowcolor>
 							<label>$INFO[ListItem.Property(Artist_Formed)]</label>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+							<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 						</control>
 						<control type="label">
 							<width min="0" max="200">auto</width>
@@ -1599,7 +1803,7 @@
 							<textcolor>MediaInfoItemColor</textcolor>
 							<shadowcolor>ShadowColor</shadowcolor>
 							<label>$LOCALIZE[21893]/$LOCALIZE[21894]: [COLOR=MediaInfoItemColor2]$LOCALIZE[31001][/COLOR]</label>
-							<visible>String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+							<visible>IsEmpty(ListItem.Property(Artist_Born)) + IsEmpty(ListItem.Property(Artist_Formed))</visible>
 						</control>
 					</control>
 					
@@ -1681,6 +1885,7 @@
 	<include name="MusicListInfo2ItemLayout">
 		<itemlayout height="37">
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>37</height>	
 				<texture border="0,0,10,2">views/list-separator.png</texture>
@@ -1737,9 +1942,9 @@
 				<top>10</top>
 				<width>100</width>
 				<height>16</height>		
-				<texture background="true">$VAR[StarRating]</texture>
+				<texture background="true">$INFO[ListItem.StarRating]</texture>
 				<aspectratio align="right">keep</aspectratio>
-				<visible>!Skin.HasSetting(DoNotUseStarRatingMusic) + !String.IsEmpty(ListItem.Album)</visible>
+				<visible>!Skin.HasSetting(DoNotUseStarRatingMusic) + !IsEmpty(ListItem.Album)</visible>
 				<include>StarRatingFadeAnim</include>
 			</control>	
 		</itemlayout>	
@@ -1748,12 +1953,14 @@
 	<include name="MusicListInfo2FocusedLayout">
 		<focusedlayout height="37">	
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>37</height>	
 				<texture border="0,0,10,2">views/list-separator.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>36</height>	
 				<texture border="4">views/list-focus.png</texture>
@@ -1763,6 +1970,7 @@
 				<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewScrollAnim</include>
 			</control>
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>36</height>	
 				<texture border="4">views/list-alt-focus.png</texture>
@@ -1822,9 +2030,9 @@
 					<top>10</top>
 					<width>100</width>
 					<height>16</height>		
-					<texture background="true">$VAR[StarRating]</texture>
+					<texture background="true">$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="right">keep</aspectratio>
-					<visible>!Skin.HasSetting(DoNotUseStarRatingMusic) + !String.IsEmpty(ListItem.Album)</visible>
+					<visible>!Skin.HasSetting(DoNotUseStarRatingMusic) + !IsEmpty(ListItem.Album)</visible>
 				</control>
 			</control>
 		</focusedlayout>					
@@ -1833,6 +2041,7 @@
 	<include name="MusicListInfo2TallStyleItemLayout">
 		<itemlayout height="74">
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>74</height>	
 				<texture border="0,0,10,2">views/list-separator.png</texture>
@@ -1840,6 +2049,8 @@
 			</control>
 			<control type="image">
 				<description>Cover</description>
+				<left>0</left>
+				<top>0</top>
 				<width>73</width>
 				<height>73</height>
 				<bordertexture border="7">covers/cover-case-nofocus.png</bordertexture>
@@ -1849,32 +2060,38 @@
 			</control>
 			<control type="image">
 				<description>Dim</description>
+				<left>0</left>
+				<top>0</top>
 				<width>73</width>
 				<height>73</height>
 				<bordersize>5</bordersize>
 				<texture background="true">dim.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>!String.IsEmpty(ListItem.Thumb)</visible>
+				<visible>!IsEmpty(ListItem.Thumb)</visible>
 				<include>CoverDimAnim</include>
 			</control>
 			<control type="image">
 				<description>Default Cover</description>
+				<left>0</left>
+				<top>0</top>
 				<width>73</width>
 				<height>73</height>
 				<bordersize>10</bordersize>
 				<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(ListItem.Thumb)</visible>
+				<visible>IsEmpty(ListItem.Thumb)</visible>
 				<animation effect="fade" end="40" condition="true">Conditional</animation>
 			</control>
 			<control type="image">
 				<description>Default Cover</description>
+				<left>0</left>
+				<top>0</top>
 				<width>73</width>
 				<height>73</height>
 				<bordersize>10</bordersize>
 				<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(ListItem.Thumb) + Container.Content(Artists)</visible>
+				<visible>IsEmpty(ListItem.Thumb) + Container.Content(Artists)</visible>
 				<animation effect="fade" end="40" condition="true">Conditional</animation>
 			</control>			
 			<control type="group">
@@ -1917,9 +2134,9 @@
 					<top>16</top>
 					<width>100</width>
 					<height>16</height>		
-					<texture background="true">$VAR[StarRating]</texture>
+					<texture background="true">$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="right">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
+					<visible>!IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 					<include>StarRatingFadeAnim</include>
 				</control>
 			</control>
@@ -1963,10 +2180,10 @@
 					<top>16</top>
 					<width>100</width>
 					<height>16</height>		
-					<texture background="true">$VAR[StarRating]</texture>
+					<texture background="true">$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="right">keep</aspectratio>
 					<animation effect="fade" end="70" condition="true">Conditional</animation>
-					<visible>!String.IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
+					<visible>!IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -1990,7 +2207,7 @@
 					<textcolor>ListColor2</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
 					<label>$INFO[ListItem.Property(Artist_Born)]</label>
-					<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+					<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 				</control>
 				<control type="label">
 					<description>Label2 (Formed)</description>
@@ -2001,7 +2218,7 @@
 					<textcolor>ListColor2</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
 					<label>$INFO[ListItem.Property(Artist_Formed)]</label>
-					<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+					<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 				</control>
 			</control>
 		</itemlayout>	
@@ -2010,12 +2227,14 @@
 	<include name="MusicListInfo2TallStyleFocusedLayout">
 		<focusedlayout height="74">	
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>74</height>	
 				<texture border="0,0,10,2">views/list-separator.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>73</height>
 				<texture border="4">views/list-focus.png</texture>
@@ -2026,6 +2245,7 @@
 				<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)] + [Skin.String(MusicListInfo2Style,) | Skin.String(MusicListInfo2Style,3)]">ListViewScrollAnim</include>
 			</control>
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>73</height>
 				<texture border="4">views/list-alt-focus.png</texture>
@@ -2035,6 +2255,8 @@
 			</control>
 			<control type="image">
 				<description>Cover</description>
+				<left>0</left>
+				<top>0</top>
 				<width>73</width>
 				<height>73</height>
 				<bordertexture border="7">covers/cover-case-nofocus.png</bordertexture>
@@ -2045,22 +2267,26 @@
 			</control>
 			<control type="image">
 				<description>Default Cover</description>
+				<left>0</left>
+				<top>0</top>
 				<width>73</width>
 				<height>73</height>
 				<bordersize>10</bordersize>
 				<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(ListItem.Thumb)</visible>
+				<visible>IsEmpty(ListItem.Thumb)</visible>
 				<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewCoverFocusAnim</include>	
 			</control>	
 			<control type="image">
 				<description>Default Cover</description>
+				<left>0</left>
+				<top>0</top>
 				<width>73</width>
 				<height>73</height>
 				<bordersize>10</bordersize>
 				<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(ListItem.Thumb) + Container.Content(Artists)</visible>
+				<visible>IsEmpty(ListItem.Thumb) + Container.Content(Artists)</visible>
 				<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewCoverFocusAnim</include>	
 			</control>	
 			<control type="group">
@@ -2105,9 +2331,9 @@
 					<top>16</top>
 					<width>100</width>
 					<height>16</height>		
-					<texture background="true">$VAR[StarRating]</texture>
+					<texture background="true">$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="right">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
+					<visible>!IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -2152,9 +2378,9 @@
 					<top>16</top>
 					<width>100</width>
 					<height>16</height>		
-					<texture background="true">$VAR[StarRating]</texture>
+					<texture background="true">$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="right">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
+					<visible>!IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -2180,7 +2406,7 @@
 					<textcolor>ListColor2</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
 					<label>$INFO[ListItem.Property(Artist_Born)]</label>
-					<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+					<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
 				</control>
 				<control type="label">
 					<description>Label2 (Formed)</description>
@@ -2191,7 +2417,7 @@
 					<textcolor>ListColor2</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>
 					<label>$INFO[ListItem.Property(Artist_Formed)]</label>
-					<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+					<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
 				</control>
 			</control>
 		</focusedlayout>						
@@ -2208,33 +2434,121 @@
 			<include>ListInfo3MediaInfoPanelCommon</include>
 			
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Album)</visible>
+				<visible>!IsEmpty(ListItem.Album)</visible>
 				<include>ListInfo3PanelFanart</include>
 				
-				<include content="ThumbsInfoMediaInfoArea">
-					<param name="visible" value="true" />
-					<param name="Grouplist1LabelWidth" value="110" />
-					<param name="Grouplist1Label" value="$LOCALIZE[557]" />
-					<param name="Grouplist1InfoWidth" value="190" />
-					<param name="Grouplist1Info" value="$INFO[ListItem.Artist]" />
-					<param name="Grouplist2LabelWidth" value="110" />
-					<param name="Grouplist2Label" value="$LOCALIZE[21899]" />
-					<param name="Grouplist2InfoWidth" value="190" />
-					<param name="Grouplist2Info" value="$INFO[ListItem.Property(Album_Label)]" />
-					<param name="Grouplist3LabelWidth" value="110" />
-					<param name="Grouplist3Label" value="$LOCALIZE[345]" />
-					<param name="Grouplist3InfoWidth" value="110" />
-					<param name="Grouplist3Info" value="$INFO[ListItem.Year]" />
-					<param name="Grouplist4LabelWidth" value="110" />
-					<param name="Grouplist4Label" value="$LOCALIZE[563]" />
-					<param name="Grouplist4InfoWidth" value="110" />
-					<param name="Grouplist4Info" value="$INFO[ListItem.Rating]" />
-				</include>
+				<control type="group">
+					<description>Media Info Area</description>
+					<left>38</left>
+					<top>354</top>
+		
+					<control type="grouplist">
+						<description>Artist</description>
+						<left>10</left>
+						<top>0</top>
+						<width>400</width>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[557]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="190">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Artist]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Record Label</description>
+						<left>10</left>
+						<top>22</top>
+						<width>400</width>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[21899]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="190">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Property(Album_Label)]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Year</description>
+						<left>268</left>
+						<top>0</top>
+						<width>130</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[345]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Year]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Rating</description>
+						<left>268</left>
+						<top>22</top>
+						<width>130</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[563]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Rating]</label>
+						</control>
+					</control>
+				</control>
 				
-				<include content="ThumbsInfoPlot">
-					<param name="fallback" value="31204" />
-					<param name="label" value="$INFO[ListItem.Property(Album_Description)]" />
-				</include>
+				<control type="textbox">
+					<description>Description</description>
+					<left>48</left>
+					<top>418</top>
+					<width>388</width>
+					<height>189</height>
+					<font>MediaInfoDescFont</font>
+					<textcolor>MediaInfoColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<align>justify</align>
+					<label fallback="31204">$INFO[ListItem.Property(Album_Description)]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<autoscroll time="2000" delay="6000" repeat="10000">!Skin.HasSetting(DoNotAutoScrollPlot)</autoscroll>
+					<visible>!Container.OnNext + !Container.OnPrevious</visible>
+					<include>ControlsOpenCloseAnim</include>
+				</control>
 				
 				<include>ListInfo3RightPanelCover</include>
 			</control>
@@ -2255,6 +2569,7 @@
 				<visible>Container.Content(Albums)</visible>
 				<itemlayout height="37">
 					<control type="image">
+						<left>0</left>
 						<width>354</width>
 						<height>37</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
@@ -2284,12 +2599,14 @@
 				</itemlayout>		
 				<focusedlayout height="37">	
 					<control type="image">
+						<left>0</left>
 						<width>354</width>
 						<height>37</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>354</width>
 						<height>36</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -2299,6 +2616,7 @@
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewScrollAnim</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>354</width>
 						<height>36</height>	
 						<texture border="4">views/list-alt-focus.png</texture>
@@ -2359,33 +2677,121 @@
 			<include>ListInfo3MediaInfoPanelCommon</include>
 			
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Album)</visible>
+				<visible>!IsEmpty(ListItem.Album)</visible>
 				<include>ListInfo3PanelFanart</include>
 
-				<include content="ThumbsInfoMediaInfoArea">
-					<param name="visible" value="true" />
-					<param name="Grouplist1LabelWidth" value="110" />
-					<param name="Grouplist1Label" value="$LOCALIZE[557]" />
-					<param name="Grouplist1InfoWidth" value="190" />
-					<param name="Grouplist1Info" value="$INFO[ListItem.Artist]" />
-					<param name="Grouplist2LabelWidth" value="110" />
-					<param name="Grouplist2Label" value="$LOCALIZE[21899]" />
-					<param name="Grouplist2InfoWidth" value="190" />
-					<param name="Grouplist2Info" value="$INFO[ListItem.Property(Album_Label)]" />
-					<param name="Grouplist3LabelWidth" value="110" />
-					<param name="Grouplist3Label" value="$LOCALIZE[345]" />
-					<param name="Grouplist3InfoWidth" value="110" />
-					<param name="Grouplist3Info" value="$INFO[ListItem.Year]" />
-					<param name="Grouplist4LabelWidth" value="110" />
-					<param name="Grouplist4Label" value="$LOCALIZE[563]" />
-					<param name="Grouplist4InfoWidth" value="110" />
-					<param name="Grouplist4Info" value="$INFO[ListItem.Rating]" />
-				</include>
+				<control type="group">
+					<description>Media Info Area</description>
+					<left>38</left>
+					<top>354</top>
+		
+					<control type="grouplist">
+						<description>Artist</description>
+						<left>10</left>
+						<top>0</top>
+						<width>400</width>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[557]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="190">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Artist]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Record Label</description>
+						<left>10</left>
+						<top>22</top>
+						<width>400</width>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[21899]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="190">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Property(Album_Label)]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Year</description>
+						<left>268</left>
+						<top>0</top>
+						<width>130</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[345]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Year]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Rating</description>
+						<left>268</left>
+						<top>22</top>
+						<width>130</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[563]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="110">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Rating]</label>
+						</control>
+					</control>
+				</control>
 				
-				<include content="ThumbsInfoPlot">
-					<param name="fallback" value="31204" />
-					<param name="label" value="$INFO[ListItem.Property(Album_Description)]" />
-				</include>
+				<control type="textbox">
+					<description>Description</description>
+					<left>48</left>
+					<top>418</top>
+					<width>388</width>
+					<height>189</height>
+					<font>MediaInfoDescFont</font>
+					<textcolor>MediaInfoColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<align>justify</align>
+					<label fallback="31204">$INFO[ListItem.Property(Album_Description)]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<autoscroll time="2000" delay="6000" repeat="10000">!Skin.HasSetting(DoNotAutoScrollPlot)</autoscroll>
+					<visible>!Container.OnNext + !Container.OnPrevious</visible>
+					<include>ControlsOpenCloseAnim</include>
+				</control>
 			</control>
 			
 			<control type="panel" id="599">
@@ -2420,7 +2826,7 @@
 						<bordersize>20</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<animation effect="fade" end="60" condition="true">Conditional</animation>
 					</control>
 					<control type="image">
@@ -2438,7 +2844,7 @@
 						<texture background="true">dim.png</texture>
 						<aspectratio>stretch</aspectratio>
 						<bordersize>10</bordersize>
-						<visible>!String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>!IsEmpty(ListItem.Thumb)</visible>
 						<include>CoverDimAnim</include>
 					</control>
 				</itemlayout>
@@ -2523,7 +2929,7 @@
 					<control type="label">
 						<include>InfoPaneItemTitle</include>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<visible>String.IsEmpty(ListItem.Artist)</visible>
+						<visible>IsEmpty(ListItem.Artist)</visible>
 					</control>
 					
 					<control type="label">
@@ -2601,6 +3007,7 @@
 		</control>
 		
 		<control type="image">
+			<left>0</left>
 			<top>270</top>
 			<width>1280</width>
 			<height>131</height>	
@@ -2620,7 +3027,7 @@
 			<label>$INFO[ListItem.Label]</label>
 			<aligny>center</aligny>
 			<scroll>true</scroll>
-			<visible>String.IsEmpty(ListItem.Album)</visible>
+			<visible>IsEmpty(ListItem.Album)</visible>
 		</control>
 		
 		<control type="label">
@@ -2635,10 +3042,11 @@
 			<label>$INFO[ListItem.Album]</label>
 			<aligny>center</aligny>
 			<scroll>true</scroll>
-			<visible>!String.IsEmpty(ListItem.Album)</visible>
+			<visible>!IsEmpty(ListItem.Album)</visible>
 		</control>
 		
 		<control type="image">
+			<left>0</left>
 			<top>303</top>
 			<width>1280</width>
 			<height>2</height>
@@ -2653,7 +3061,7 @@
 			<width>765</width>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<visible>!String.IsEmpty(ListItem.Album)</visible>
+			<visible>!IsEmpty(ListItem.Album)</visible>
 			<control type="label">
 				<description>Artist</description>
 				<width min="0" max="110">auto</width>
@@ -2695,7 +3103,7 @@
 		</control>
 
 		<control type="group">
-			<visible>!String.IsEmpty(ListItem.Album) + !Skin.HasSetting(EnableMusicWrapListInfoCompactMode)</visible>
+			<visible>!IsEmpty(ListItem.Album) + !Skin.HasSetting(EnableMusicWrapListInfoCompactMode)</visible>
 			<depth>DepthContent+</depth>
 
 			<control type="textbox">
@@ -2721,6 +3129,7 @@
 				
 				<control type="label">
 					<description>Genre</description>
+					<left>0</left>
 					<top>10</top>
 					<width>204</width>
 					<font>MediaInfoFont2</font>
@@ -2732,6 +3141,7 @@
 				
 				<control type="label">
 					<description>Rating</description>
+					<left>0</left>
 					<top>30</top>
 					<width>204</width>
 					<font>WrapListRatingFont</font>
@@ -2744,12 +3154,13 @@
 				
 				<control type="image">	
 					<description>Star Rating</description>
+					<left>0</left>
 					<top>35</top>
 					<width>204</width>
 					<height>22</height>		
-					<texture>$VAR[StarRating]</texture>
+					<texture>$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="center">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
+					<visible>!IsEmpty(ListItem.Album) + !Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 					<include>StarRatingFadeAnim</include>
 				</control>
 			</control>
@@ -2792,7 +3203,7 @@
 					<texture>dim.png</texture>
 					<bordersize>9</bordersize>
 					<aspectratio>stretch</aspectratio>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 				</control>		
 				<control type="image">
 					<description>Default Cover</description>
@@ -2801,7 +3212,7 @@
 					<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 					<bordersize>22</bordersize>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 					<animation effect="fade" end="30" condition="true">Conditional</animation>
 				</control>	
 				<control type="image">
@@ -2844,7 +3255,7 @@
 						<texture>dim.png</texture>
 						<bordersize>10</bordersize>
 						<aspectratio>stretch</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 					</control>		
 					<control type="image">
 						<description>Default Cover</description>
@@ -2853,7 +3264,7 @@
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<bordersize>22</bordersize>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 					</control>
 					<control type="image">
 						<description>Reflection</description>
@@ -2909,6 +3320,7 @@
 		</control>
 		
 		<control type="image">
+			<left>0</left>
 			<top>209</top>
 			<width>1280</width>
 			<height>167</height>	
@@ -2928,7 +3340,7 @@
 			<label>$INFO[ListItem.Label]</label>
 			<aligny>center</aligny>
 			<scroll>true</scroll>
-			<visible>String.IsEmpty(ListItem.Album)</visible>
+			<visible>IsEmpty(ListItem.Album)</visible>
 		</control>
 		
 		<control type="label">
@@ -2943,10 +3355,11 @@
 			<label>$INFO[ListItem.Album]</label>
 			<aligny>center</aligny>
 			<scroll>true</scroll>
-			<visible>!String.IsEmpty(ListItem.Album)</visible>
+			<visible>!IsEmpty(ListItem.Album)</visible>
 		</control>
 		
 		<control type="image">
+			<left>0</left>
 			<top>242</top>
 			<width>1280</width>
 			<height>2</height>
@@ -2961,7 +3374,7 @@
 			<width>765</width>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<visible>!String.IsEmpty(ListItem.Album)</visible>
+			<visible>!IsEmpty(ListItem.Album)</visible>
 			<control type="label">
 				<description>Artist</description>
 				<width min="0" max="110">auto</width>
@@ -3003,7 +3416,7 @@
 		</control>
 		
 		<control type="group">
-			<visible>!String.IsEmpty(ListItem.Album) + !Skin.HasSetting(EnableMusicWrapListInfoCompactMode)</visible>
+			<visible>!IsEmpty(ListItem.Album) + !Skin.HasSetting(EnableMusicWrapListInfoCompactMode)</visible>
 			<depth>DepthContent+</depth>
 
 			<control type="textbox">
@@ -3029,6 +3442,7 @@
 				
 				<control type="label">
 					<description>Genre</description>
+					<left>0</left>
 					<top>10</top>
 					<width>268</width>
 					<font>MediaInfoFont2</font>
@@ -3040,6 +3454,7 @@
 				
 				<control type="label">
 					<description>Rating</description>
+					<left>0</left>
 					<top>30</top>
 					<width>268</width>
 					<font>WrapListRatingFont</font>
@@ -3052,10 +3467,11 @@
 				
 				<control type="image">
 					<description>Star Rating</description>
+					<left>0</left>
 					<top>35</top>
 					<width>268</width>
 					<height>22</height>		
-					<texture>$VAR[StarRating]</texture>
+					<texture>$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="center">keep</aspectratio>
 					<visible>!Skin.HasSetting(DoNotUseStarRatingMusic)</visible>
 					<include>StarRatingFadeAnim</include>
@@ -3100,7 +3516,7 @@
 					<texture>dim.png</texture>
 					<bordersize>12</bordersize>
 					<aspectratio>stretch</aspectratio>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 				</control>				
 				<control type="image">
 					<description>Default Cover</description>
@@ -3110,7 +3526,7 @@
 					<bordersize>30</bordersize>
 					<aspectratio>keep</aspectratio>
 					<animation effect="fade" end="30" condition="true">Conditional</animation>
-					<visible>String.IsEmpty(ListItem.Thumb)</visible>
+					<visible>IsEmpty(ListItem.Thumb)</visible>
 				</control>			
 				<control type="image">
 					<description>Reflection</description>
@@ -3152,7 +3568,7 @@
 						<texture>dim.png</texture>
 						<bordersize>12</bordersize>
 						<aspectratio>stretch</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 					</control>
 					<control type="image">
 						<description>Default Cover</description>
@@ -3161,7 +3577,7 @@
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<bordersize>30</bordersize>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 					</control>			
 					<control type="image">
 						<description>Reflection</description>
@@ -3215,7 +3631,7 @@
 						<height>225</height>
 						<bordersize>40</bordersize>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
-						<visible>String.IsEmpty(ListItem.Thumb)</visible>
+						<visible>IsEmpty(ListItem.Thumb)</visible>
 						<animation effect="fade" end="60" condition="true">Conditional</animation>
 					</control>
 					<control type="image">
@@ -3235,7 +3651,7 @@
 						<height>225</height>
 						<texture background="true">dim.png</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>!String.IsEmpty(ListItem.Thumb) + !Skin.HasSetting(DoNotDimMusicWallCover)</visible>
+						<visible>!IsEmpty(ListItem.Thumb) + !Skin.HasSetting(DoNotDimMusicWallCover)</visible>
 						<include>CoverDimAnim</include>
 					</control>
 				</itemlayout>					

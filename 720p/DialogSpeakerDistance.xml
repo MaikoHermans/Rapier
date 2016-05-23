@@ -2,22 +2,25 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	
 	<coordinates>
-		<left>325</left>
-		<top>81</top>
+		<system>1</system>
+		<left>400</left>
+		<top>79</top>
 	</coordinates>
 	
 	<controls>
 		<control type="group">
 			<depth>DepthDialog+</depth>
 			<include>DialogOpenCloseAnim</include>
+			<animation effect="slide" end="-378,0" condition="Window.IsActive(FullScreenVideo) | Window.IsActive(Visualisation)">Conditional</animation>
 			
-			<include content="DialogWithCloseBtnLabel">
-				<param name="width" value="630"/>
-				<param name="height" value="557" />
-				<param name="left" value="570" />
-				<param name="labelwidth" value="550" />
-				<param name="label" value="$ADDON[adsp.basic 30072]" />
-			</include>
+			<include>SettingsDialogBox</include>
+			
+			<control type="label">
+				<description>header label</description>
+				<width>450</width>
+				<include>SettingsDialogTitle</include>
+				<label>$ADDON[adsp.basic 30072]</label>
+			</control>
 			
 			<control type="grouplist" id="9000">
 				<top>DialogMarginOffsetY</top>
@@ -31,13 +34,13 @@
 				<pagecontrol>60</pagecontrol>
 				<control type="spincontrolex" id="10">
 					<description>Speaker Distance Unit</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30073]</label>
 				</control>
 				<control type="label" id="12">
 					<description>Speaker distance info</description>
-					<width>560</width>
+					<width>460</width>
 					<height>35</height>
 					<align>center</align>
 					<include>DialogContentLabel</include>
@@ -45,121 +48,121 @@
 				</control>
 				<control type="spincontrolex" id="13"><!--    AE_DSP_CH_FL-->
 					<description>Speaker Distance FL</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30031]</label>
 				</control>
 				<control type="spincontrolex" id="24"><!--    AE_DSP_CH_TFL-->
 					<description>Speaker Distance TFL</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30054]</label>
 				</control>
 				<control type="spincontrolex" id="19"><!--    AE_DSP_CH_FLOC-->
 					<description>Speaker Distance FLOC</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30052]</label>
 				</control>
 				<control type="spincontrolex" id="15"><!--    AE_DSP_CH_FC-->
 					<description>Speaker Distance Center</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30037]</label>
 				</control>
 				<control type="spincontrolex" id="26"><!--    AE_DSP_CH_TFC-->
 					<description>Speaker Distance TFC</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30056]</label>
 				</control>
 				<control type="spincontrolex" id="20"><!--    AE_DSP_CH_FROC-->
 					<description>Speaker Distance FLOC</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30053]</label>
 				</control>
 				<control type="spincontrolex" id="25"><!--    AE_DSP_CH_TFR-->
 					<description>Speaker Distance TFR</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30055]</label>
 				</control>
 				<control type="spincontrolex" id="14"><!--    AE_DSP_CH_FR-->
 					<description>Speaker Distance FR</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30032]</label>
 				</control>
 				<control type="spincontrolex" id="23"><!--    AE_DSP_CH_SR-->
 					<description>Speaker Distance SR</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30034]</label>
 				</control>
 				<control type="spincontrolex" id="18"><!--    AE_DSP_CH_BR-->
 					<description>Speaker Distance BR</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30036]</label>
 				</control>
 				<control type="spincontrolex" id="29"><!--    AE_DSP_CH_TBR-->
 					<description>Speaker Distance TBL</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30063]</label>
 				</control>
 				<control type="spincontrolex" id="32"><!--    AE_DSP_CH_BROC-->
 					<description>Speaker Distance BROC</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30062]</label>
 				</control>
 				<control type="spincontrolex" id="21"><!--    AE_DSP_CH_BC-->
 					<description>Speaker Distance BC</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30039]</label>
 				</control>
 				<control type="spincontrolex" id="30"><!--    AE_DSP_CH_TBC-->
 					<description>Speaker Distance TBC</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30060]</label>
 				</control>
 				<control type="spincontrolex" id="31"><!--    AE_DSP_CH_BLOC-->
 					<description>Speaker Distance BLOC</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30061]</label>
 				</control>
 				<control type="spincontrolex" id="28"><!--    AE_DSP_CH_TBL-->
 					<description>Speaker Distance TBL</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30063]</label>
 				</control>
 				<control type="spincontrolex" id="17"><!--    AE_DSP_CH_BL-->
 					<description>Speaker Distance BL</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30035]</label>
 				</control>
 				<control type="spincontrolex" id="22"><!--    AE_DSP_CH_SL-->
 					<description>Speaker Distance SL</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30033]</label>
 				</control>
 				<control type="spincontrolex" id="27"><!--    AE_DSP_CH_TC-->
 					<description>Speaker Distance Top Center</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30057]</label>
 				</control>
 				<control type="spincontrolex" id="16"><!--    AE_DSP_CH_LFE-->
 					<description>Speaker Distance Sub</description>
-					<width>560</width>
+					<width>460</width>
 					<include>DialogContentLabel</include>
 					<label>$ADDON[adsp.basic 30038]</label>
 				</control>
@@ -167,7 +170,7 @@
 			
 			<control type="grouplist" id="9001">		
 				<description>Dialog Button Area</description>
-				<width>630</width>
+				<width>530</width>
 				<align>center</align>
 				<top>504</top>
 				<itemgap>0</itemgap>
@@ -180,11 +183,13 @@
 				<onleft condition="!Control.IsVisible(60)">9001</onleft>
 				<control type="button" id="1">
 					<description>OK</description>
+					<width>159</width>
 					<include>DialogMenuBarBtn</include>
 					<label>$LOCALIZE[186]</label>
 				</control>			
 				<control type="button" id="2">
 					<description>Cancel</description>
+					<width>159</width>
 					<include>DialogMenuBarBtn</include>
 					<label>$LOCALIZE[222]</label>
 				</control>

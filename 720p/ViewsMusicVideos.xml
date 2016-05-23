@@ -10,7 +10,7 @@
 			<include>ListInfo2MediaInfoPanelCommon</include>
 			
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Title)</visible>
+				<visible>!IsEmpty(ListItem.Title)</visible>
 				<control type="image">
 					<left>40</left>
 					<top>116</top>
@@ -37,7 +37,7 @@
 					<width>250</width>
 					<height>27</height>
 					<texture border="8">views/genre-background.png</texture>
-					<visible>!String.IsEmpty(ListItem.Genre) + !Skin.HasSetting(HideMusicVideosGenres)</visible>
+					<visible>!IsEmpty(ListItem.Genre) + !Skin.HasSetting(HideMusicVideosGenres)</visible>
 				</control>
 							
 				<control type="label">
@@ -51,34 +51,119 @@
 					<label>[UPPERCASE]$INFO[ListItem.Genre][/UPPERCASE]</label>
 					<scroll>false</scroll>
 					<animation effect="fade" end="90" condition="true">Conditional</animation>
-					<visible>!String.IsEmpty(ListItem.Genre) + !Skin.HasSetting(HideMusicVideosGenres)</visible>
+					<visible>!IsEmpty(ListItem.Genre) + !Skin.HasSetting(HideMusicVideosGenres)</visible>
 				</control>
 				
-				<include content="ListInfo2MediaInfoArea">
-					<param name="visible" value="true" />
-					<param name="Grouplist1LabelWidth" value="150" />
-					<param name="Grouplist1Label" value="$LOCALIZE[345]" />
-					<param name="Grouplist1InfoWidth" value="150" />
-					<param name="Grouplist1Info" value="$INFO[ListItem.Year]" />
-					<param name="Grouplist2LabelWidth" value="150" />
-					<param name="Grouplist2Label" value="$LOCALIZE[2050]" />
-					<param name="Grouplist2InfoWidth" value="150" />
-					<param name="Grouplist2Info" value="$VAR[MovieDuration]" />
-					<param name="Grouplist3LabelWidth" value="150" />
-					<param name="Grouplist3Label" value="$LOCALIZE[572]" />
-					<param name="Grouplist3InfoWidth" value="300" />
-					<param name="Grouplist3Info" value="$INFO[ListItem.Studio]" />
-					<param name="Grouplist4LabelWidth" value="150" />
-					<param name="Grouplist4Label" value="$LOCALIZE[20339]" />
-					<param name="Grouplist4InfoWidth" value="300" />
-					<param name="Grouplist4Info" value="$INFO[ListItem.Director]" />
-				</include>
+				<control type="group">
+					<description>Media Info Area</description>
+					<left>38</left>
+					<top>430</top>
+		
+					<control type="grouplist">
+						<description>Year</description>
+						<left>10</left>
+						<top>0</top>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="150">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[345]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="150">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Year]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Runtime</description>
+						<left>10</left>
+						<top>22</top>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="0" max="150">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[2050]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="150">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$VAR[MovieDuration]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Studio</description>
+						<left>256</left>
+						<top>0</top>
+						<width>280</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="150">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[572]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="300">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Studio]</label>
+						</control>
+					</control>
+					
+					<control type="grouplist">
+						<description>Director</description>
+						<left>256</left>
+						<top>22</top>
+						<width>280</width>
+						<orientation>horizontal</orientation>
+						<align>right</align>
+						<control type="label">
+							<width min="0" max="150">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label>$LOCALIZE[20339]:</label>
+						</control>
+						<control type="label">
+							<width min="0" max="300">auto</width>
+							<font>MediaInfoFont</font>
+							<textcolor>MediaInfoItemColor2</textcolor>
+							<shadowcolor>ShadowColor</shadowcolor>
+							<label fallback="31001">$INFO[ListItem.Director]</label>
+						</control>
+					</control>
+				</control>
 				
-				<include content="ListInfo2Plot">
-					<param name="fallback" value="31203" />
-					<param name="label" value="$INFO[ListItem.Plot]" />
-					<param name="visible" value="!Container.OnNext + !Container.OnPrevious" />
-				</include>
+				<control type="textbox">
+					<description>Plot</description>
+					<left>48</left>
+					<top>494</top>
+					<width>526</width>
+					<height>120</height>
+					<font>MediaInfoDescFont</font>
+					<textcolor>MediaInfoColor</textcolor>
+					<shadowcolor>ShadowColor</shadowcolor>
+					<align>justify</align>
+					<label fallback="31203">$INFO[ListItem.Plot]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<autoscroll time="2000" delay="6000" repeat="10000">!Skin.HasSetting(DoNotAutoScrollPlot)</autoscroll>
+					<visible>!Container.OnNext + !Container.OnPrevious</visible>
+					<include>ControlsOpenCloseAnim</include>
+				</control>
 			</control>
 			
 			<control type="list" id="587">	
@@ -119,6 +204,7 @@
 	<include name="MusicVideosListInfo2ItemLayout">
 		<itemlayout height="37">
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>37</height>	
 				<texture border="0,0,10,2">views/list-separator.png</texture>
@@ -132,7 +218,7 @@
 				<height>24</height>
 				<texture background="true">$INFO[ListItem.ActualIcon].png</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(ListItem.Title)</visible>
+				<visible>IsEmpty(ListItem.Title)</visible>
 				<include>ListViewOverlayFadeAnim</include>
 			</control>					
 			<control type="label">
@@ -160,7 +246,7 @@
 				<visible>Skin.HasSetting(DoNotUseStarRatingMusicVideos)</visible>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Title)</visible>
+				<visible>!IsEmpty(ListItem.Title)</visible>
 				<control type="image">
 					<description>Star Rating</description>
 					<left>520</left>
@@ -180,7 +266,7 @@
 					<height>24</height>
 					<texture background="true">$VAR[VideoQualityOverlayUnwatched]</texture>
 					<aspectratio>stretch</aspectratio>
-					<visible>!String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+					<visible>!StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					<include>ListViewOverlayFadeAnim</include>
 				</control>		
 				<control type="image">
@@ -191,7 +277,7 @@
 					<height>24</height>
 					<texture background="true">$VAR[VideoQualityOverlayWatched]</texture>
 					<aspectratio>stretch</aspectratio>
-					<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					<include>ListViewOverlayFadeAnim</include>
 				</control>
 				<control type="image">
@@ -213,12 +299,14 @@
 	<include name="MusicVideosListInfo2FocusedLayout">
 		<focusedlayout height="37">	
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>37</height>	
 				<texture border="0,0,10,2">views/list-separator.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>36</height>	
 				<texture border="4">views/list-focus.png</texture>
@@ -228,6 +316,7 @@
 				<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewScrollAnim</include>
 			</control>
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>36</height>	
 				<texture border="4">views/list-alt-focus.png</texture>
@@ -245,7 +334,7 @@
 					<height>24</height>
 					<texture background="true">$INFO[ListItem.ActualIcon].png</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(ListItem.Title)</visible>
+					<visible>IsEmpty(ListItem.Title)</visible>
 				</control>
 				<control type="label">
 					<description>Label</description>
@@ -273,7 +362,7 @@
 					<visible>Skin.HasSetting(DoNotUseStarRatingMusicVideos)</visible>
 				</control>
 				<control type="group">
-					<visible>!String.IsEmpty(ListItem.Title)</visible>
+					<visible>!IsEmpty(ListItem.Title)</visible>
 					<control type="image">
 						<description>Star Rating</description>
 						<left>520</left>
@@ -293,7 +382,7 @@
 						<height>24</height>
 						<texture background="true">$VAR[VideoQualityOverlayUnwatched]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>!String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>!StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>		
 					<control type="image">
 						<description>Quality</description>
@@ -303,7 +392,7 @@
 						<height>24</height>
 						<texture background="true">$VAR[VideoQualityOverlayWatched]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 					<control type="image">
 						<description>Watched Partial</description>
@@ -325,6 +414,7 @@
 	<include name="MusicVideosListInfo2TallStyleItemLayout">
 		<itemlayout height="74">
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>74</height>	
 				<texture border="0,0,10,2">views/list-separator.png</texture>
@@ -332,6 +422,7 @@
 			</control>
 			<control type="image">
 				<description>Cover</description>
+				<left>0</left>
 				<top>4</top>
 				<width>97</width>
 				<height>65</height>
@@ -342,24 +433,26 @@
 			</control>
 			<control type="image">
 				<description>Dim</description>
+				<left>0</left>
 				<top>4</top>
 				<width>97</width>
 				<height>65</height>
 				<bordersize>5</bordersize>
 				<texture background="true">dim.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>!String.IsEmpty(ListItem.Thumb)</visible>
+				<visible>!IsEmpty(ListItem.Thumb)</visible>
 				<include>CoverDimAnim</include>
 			</control>
 			<control type="image">
 				<description>Default Cover</description>
+				<left>0</left>
 				<top>4</top>
 				<width>97</width>
 				<height>65</height>
 				<bordersize>5</bordersize>
 				<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(ListItem.Thumb)</visible>
+				<visible>IsEmpty(ListItem.Thumb)</visible>
 				<animation effect="fade" end="40" condition="true">Conditional</animation>
 			</control>								
 			<control type="label">
@@ -381,7 +474,7 @@
 				<textcolor>ListColor2</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>	
 				<label>$INFO[ListItem.Artist,, - ]$INFO[ListItem.Year]</label>
-				<visible>![String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[554])]</visible>
+				<visible>![StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[554])]</visible>
 			</control>
 			<control type="label">
 				<description>Label2</description>
@@ -392,10 +485,10 @@
 				<textcolor>ListColor2</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>	
 				<label>$INFO[ListItem.Year,, - ]$VAR[MovieDuration,, $LOCALIZE[12391]]</label>
-				<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[554])</visible>
+				<visible>StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[554])</visible>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Title)</visible>
+				<visible>!IsEmpty(ListItem.Title)</visible>
 				<control type="label">
 					<description>Rating</description>
 					<left>520</left>
@@ -429,7 +522,7 @@
 						<height>24</height>
 						<texture background="true">$VAR[VideoQualityOverlayUnwatched]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>!StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						<include>ListViewOverlayFadeAnim</include>
 					</control>	
 					<control type="image">
@@ -440,7 +533,7 @@
 						<height>24</height>
 						<texture background="true">$VAR[VideoQualityOverlayWatched]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						<include>ListViewOverlayFadeAnim</include>
 					</control>	
 					<control type="image">
@@ -463,12 +556,14 @@
 	<include name="MusicVideosListInfo2TallStyleFocusedLayout">
 		<focusedlayout height="74">	
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>74</height>	
 				<texture border="0,0,10,2">views/list-separator.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>73</height>
 				<texture border="4">views/list-focus.png</texture>
@@ -479,6 +574,7 @@
 				<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)] + [Skin.String(MusicVideosListInfo2Style,) | Skin.String(MusicVideosListInfo2Style,3)]">ListViewScrollAnim</include>
 			</control>
 			<control type="image">
+				<left>0</left>
 				<width>630</width>
 				<height>73</height>
 				<texture border="4">views/list-alt-focus.png</texture>
@@ -488,6 +584,7 @@
 			</control>
 			<control type="image">
 				<description>Cover</description>
+				<left>0</left>
 				<top>4</top>
 				<width>97</width>
 				<height>65</height>
@@ -499,13 +596,14 @@
 			</control>
 			<control type="image">
 				<description>Default Cover</description>
+				<left>0</left>
 				<top>4</top>
 				<width>97</width>
 				<height>65</height>
 				<bordersize>5</bordersize>
 				<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>String.IsEmpty(ListItem.Thumb)</visible>
+				<visible>IsEmpty(ListItem.Thumb)</visible>
 				<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewCoverFocusAnim</include>
 			</control>	
 			<control type="group">
@@ -530,7 +628,7 @@
 					<textcolor>ListColor2</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>	
 					<label>$INFO[ListItem.Artist,, - ]$INFO[ListItem.Year]</label>
-					<visible>![String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[554])]</visible>
+					<visible>![StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[554])]</visible>
 				</control>
 				<control type="label">
 					<description>Label2</description>
@@ -541,10 +639,10 @@
 					<textcolor>ListColor2</textcolor>
 					<shadowcolor>ShadowColor</shadowcolor>	
 					<label>$INFO[ListItem.Year,, - ]$VAR[MovieDuration,, $LOCALIZE[12391]]</label>
-					<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[554])</visible>
+					<visible>StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[554])</visible>
 				</control>
 				<control type="group">
-					<visible>!String.IsEmpty(ListItem.Title)</visible>
+					<visible>!IsEmpty(ListItem.Title)</visible>
 					<control type="label">
 						<description>Rating</description>
 						<left>520</left>
@@ -578,7 +676,7 @@
 							<height>24</height>
 							<texture background="true">$VAR[VideoQualityOverlayUnwatched]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>!String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+							<visible>!StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						</control>	
 						<control type="image">
 							<description>Quality</description>
@@ -588,7 +686,7 @@
 							<height>24</height>
 							<texture background="true">$VAR[VideoQualityOverlayWatched]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						</control>	
 						<control type="image">
 							<description>Watched Partial</description>

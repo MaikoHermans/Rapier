@@ -7,7 +7,7 @@
 		<width>14</width>
 		<orientation>vertical</orientation>
 		<onleft>500</onleft>
-		<visible>Integer.IsGreater(Container.NumPages,1) + Skin.HasSetting(EnableQuickJump)</visible>
+		<visible>IntegerGreaterThan(Container.NumPages,1) + Skin.HasSetting(EnableQuickJump)</visible>
 		<itemlayout height="$PARAM[itemheight]" width="14">
 			<control type="label">
 				<width>100%</width>
@@ -16,8 +16,8 @@
 				<textcolor>MediaInfoItemColor2</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 				<font>ListFont7</font>
-				<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-				<visible>!String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+				<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				<visible>!StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
 			</control>
 			<control type="label">
 				<width>100%</width>
@@ -26,7 +26,7 @@
 				<textcolor>MediaInfoItemColor</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 				<font>ListFont7</font>
-				<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+				<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout height="$PARAM[itemheight]" width="14">
@@ -38,7 +38,7 @@
 				<textcolor>SelectedColor2</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 				<animation effect="zoom" end="120,120" center="auto" time="100">Focus</animation>
-				<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 			</control>
 		</focusedlayout>
 		<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -51,7 +51,7 @@
 		<width>$PARAM[width]</width>
 		<orientation>horizontal</orientation>
 		<onup>500</onup>
-		<visible>Integer.IsGreater(Container.NumPages,1) + Skin.HasSetting(EnableQuickJump)</visible>
+		<visible>IntegerGreaterThan(Container.NumPages,1) + Skin.HasSetting(EnableQuickJump)</visible>
 		<itemlayout height="14" width="$PARAM[itemwidth]">
 			<control type="label">
 				<width>100%</width>
@@ -60,8 +60,8 @@
 				<textcolor>MediaInfoItemColor2</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 				<font>ListFont7</font>
-				<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-				<visible>!String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+				<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				<visible>!StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
 			</control>
 			<control type="label">
 				<width>100%</width>
@@ -70,7 +70,7 @@
 				<textcolor>MediaInfoItemColor</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 				<font>ListFont7</font>
-				<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+				<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
 			</control>
 		</itemlayout>
 		<focusedlayout height="14" width="$PARAM[itemwidth]">
@@ -82,10 +82,21 @@
 				<textcolor>SelectedColor2</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 				<animation effect="zoom" end="120,120" center="auto" time="100">Focus</animation>
-				<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+				<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 			</control>
 		</focusedlayout>
 		<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+	</include>
+	
+	<include name="CommonScrollbar">
+		<control type="group" id="150">
+			<control type="scrollbar" id="901">
+				<left>1262</left>
+				<top>91</top>
+				<height>543</height>
+				<onleft>2</onleft>
+			</control>
+		</control>
 	</include>
 	
 	<include name="IconViewScrollbar">
@@ -102,8 +113,8 @@
 			</control>
 			
 			<control type="panel" id="951">
-				<visible>Control.IsVisible(50) + ![Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]</visible>
-				<include content="QuickJumpVerticalLayout">
+				<visible>Control.IsVisible(50) + ![Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]</visible>
+				<include name="QuickJumpVerticalLayout">
 					<param name="left" value="1262" />
 					<param name="top" value="94" />
 					<param name="height" value="540" />
@@ -116,7 +127,7 @@
 				<top>91</top>
 				<height>543</height>
 				<onleft>500</onleft>
-				<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]]</visible>
+				<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]]</visible>
 			</control>
 		</control>
 	</include>
@@ -135,13 +146,12 @@
 				<animation effect="fade" start="100" end="0" time="150" condition="Skin.HasSetting(HideListViewScrollbar) + !ControlGroup(150).HasFocus">Conditional</animation>
 				
 				<control type="panel" id="953">
-					<visible>Control.IsVisible(52) + ![Container.Content(Seasons) | [Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]]</visible>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(musicvideos) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Artist] $INFO[ListItem.Label])</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<include content="QuickJumpVerticalLayout">
+					<visible>Control.IsVisible(52) + ![Container.Content(Seasons) | [Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(musicvideos) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Artist] $INFO[ListItem.Label])</onright>
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="767" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -155,12 +165,11 @@
 					<height>517</height>
 					<texturesliderbackground>-</texturesliderbackground>
 					<onleft>500</onleft>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(musicvideos) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Artist] $INFO[ListItem.Label])</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Seasons) | [Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]]]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(musicvideos) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Artist] $INFO[ListItem.Label])</onright>
+					<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Seasons) | [Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]]]</visible>
 				</control>
 			</control>
 		</control>
@@ -180,12 +189,11 @@
 				<animation effect="fade" start="100" end="0" time="150" condition="Skin.HasSetting(HideWideListViewScrollbar) + !ControlGroup(150).HasFocus">Conditional</animation>
 				
 				<control type="panel" id="960">
-					<visible>[Control.IsVisible(74) | Control.IsVisible(75) | Control.IsVisible(76) | Control.IsVisible(77) | Control.IsVisible(90)] + ![Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]</visible>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<include content="QuickJumpVerticalLayout">
+					<visible>[Control.IsVisible(74) | Control.IsVisible(75) | Control.IsVisible(76) | Control.IsVisible(77) | Control.IsVisible(90)] + ![Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="90" />
 						<param name="height" value="540" />
@@ -199,11 +207,10 @@
 					<height>536</height>
 					<texturesliderbackground>-</texturesliderbackground>
 					<onleft>500</onleft>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]]</visible>
 				</control>
 			</control>
 		</control>
@@ -224,7 +231,7 @@
 			
 			<control type="panel" id="954">
 				<visible>[Control.IsVisible(54) | Control.IsVisible(63)] + !Container.Content(Seasons)</visible>
-				<include content="QuickJumpVerticalLayout">
+				<include name="QuickJumpVerticalLayout">
 					<param name="left" value="1262" />
 					<param name="top" value="105" />
 					<param name="height" value="513" />
@@ -268,12 +275,11 @@
 				<animation effect="fade" start="100" end="0" time="150" condition="Skin.HasSetting(HideListInfoViewScrollbar) + !ControlGroup(150).HasFocus">Conditional</animation>
 				
 				<control type="panel" id="955">
-					<visible>[Control.IsVisible(58) | Control.IsVisible(61) | Control.IsVisible(62) | Control.IsVisible(73) | Control.IsVisible(91)] + ![Container.Content(Seasons) | [Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]]</visible>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<include content="QuickJumpVerticalLayout">
+					<visible>[Control.IsVisible(58) | Control.IsVisible(61) | Control.IsVisible(62) | Control.IsVisible(73) | Control.IsVisible(91)] + ![Container.Content(Seasons) | [Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="331" />
 						<param name="height" value="300" />
@@ -287,11 +293,10 @@
 					<height>287</height>
 					<texturesliderbackground>-</texturesliderbackground>
 					<onleft>500</onleft>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Seasons) | [Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]]]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Seasons) | [Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]]]</visible>
 				</control>
 			</control>
 		</control>
@@ -311,13 +316,12 @@
 				<animation effect="fade" start="100" end="0" time="150" condition="Skin.HasSetting(HideListInfoView2Scrollbar) + !ControlGroup(150).HasFocus">Conditional</animation>
 				
 				<control type="panel" id="956">
-					<visible>[Control.IsVisible(50) | Control.IsVisible(65) | Control.IsVisible(66) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(587) | Control.IsVisible(591)] + ![[Container.Content(Episodes) | Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRRecordings.xml)] + ![String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561])]]</visible>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(musicvideos) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Artist] $INFO[ListItem.Label])</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<include content="QuickJumpVerticalLayout">
+					<visible>[Control.IsVisible(50) | Control.IsVisible(65) | Control.IsVisible(66) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(587) | Control.IsVisible(591)] + ![[Container.Content(Episodes) | Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRRecordings.xml)] + ![StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561])]]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(musicvideos) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Artist] $INFO[ListItem.Label])</onright>
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -331,12 +335,11 @@
 					<height>517</height>
 					<texturesliderbackground>-</texturesliderbackground>
 					<onleft>500</onleft>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(musicvideos) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Artist] $INFO[ListItem.Label])</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<visible>![Skin.HasSetting(EnableQuickJump) + ![[Container.Content(Episodes) | Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRRecordings.xml)] + ![String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561])]]]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(musicvideos) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Artist] $INFO[ListItem.Label])</onright>
+					<visible>![Skin.HasSetting(EnableQuickJump) + ![[Container.Content(Episodes) | Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRRecordings.xml)] + ![StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561])]]]</visible>
 				</control>
 			</control>
 		</control>
@@ -356,12 +359,11 @@
 				<animation effect="fade" start="100" end="0" time="150" condition="Skin.HasSetting(HideListInfoView3Scrollbar) + !ControlGroup(150).HasFocus">Conditional</animation>
 				
 				<control type="panel" id="957">
-					<visible>[Control.IsVisible(94) | Control.IsVisible(95) | Control.IsVisible(96) | Control.IsVisible(578) | Control.IsVisible(589)] + ![Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]</visible>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<include content="QuickJumpVerticalLayout">
+					<visible>[Control.IsVisible(94) | Control.IsVisible(95) | Control.IsVisible(96) | Control.IsVisible(578) | Control.IsVisible(589)] + ![Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="817" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -376,11 +378,10 @@
 					<height>517</height>
 					<texturesliderbackground>-</texturesliderbackground>
 					<onleft>500</onleft>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
-					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
-					<onright condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
-					<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-					<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Episodes) + !String.IsEqual(Container.SortMethod,$LOCALIZE[551])]]</visible>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onright>
+					<onright condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</onright>
+					<onright condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</onright>
+					<visible>![Skin.HasSetting(EnableQuickJump) + ![Container.Content(Episodes) + !StringCompare(Container.SortMethod,$LOCALIZE[551])]]</visible>
 				</control>
 			</control>
 		</control>
@@ -401,7 +402,7 @@
 				
 				<control type="panel" id="968">
 					<visible>Control.IsVisible(97) | Control.IsVisible(100) | Control.IsVisible(579) | Control.IsVisible(599)</visible>
-					<include content="QuickJumpVerticalLayout">
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -436,11 +437,10 @@
 			
 			<control type="panel" id="958">
 				<visible>Control.IsVisible(53) | Control.IsVisible(64) | Control.IsVisible(93)</visible>
-				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</ondown>
-				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</ondown>
-				<ondown condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</ondown>
-				<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-				<include content="QuickJumpHorizontalLayout">
+				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</ondown>
+				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</ondown>
+				<ondown condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</ondown>
+				<include name="QuickJumpHorizontalLayout">
 					<param name="left" value="489" />
 					<param name="top" value="462" />
 					<param name="width" value="760" />
@@ -459,10 +459,9 @@
 				<textureslidernib>-</textureslidernib>
 				<textureslidernibfocus>-</textureslidernibfocus>
 				<onup>500</onup>
-				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</ondown>
-				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</ondown>
-				<ondown condition="Container.Content(Episodes) + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</ondown>
-				<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
+				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</ondown>
+				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</ondown>
+				<ondown condition="Container.Content(Episodes) + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.TVShowTitle] $INFO[ListItem.Label] trailer)</ondown>
 				<visible>!Skin.HasSetting(EnableQuickJump)</visible>
 			</control>
 		</control>
@@ -483,10 +482,9 @@
 			
 			<control type="panel" id="959">
 				<visible>!Control.IsVisible(659) + [Control.IsVisible(69) | Control.IsVisible(70) | Control.IsVisible(586)]</visible>
-				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</ondown>
-				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</ondown>
-				<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
-				<include content="QuickJumpHorizontalLayout">
+				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</ondown>
+				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</ondown>
+				<include name="QuickJumpHorizontalLayout">
 					<param name="left" value="4" />
 					<param name="top" value="704" />
 					<param name="width" value="1280" />
@@ -505,9 +503,8 @@
 				<textureslidernibfocus>-</textureslidernibfocus>
 				<visible>!Control.IsVisible(659) + !Skin.HasSetting(EnableQuickJump)</visible>
 				<onup>500</onup>
-				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + !String.IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</ondown>
-				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + String.IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</ondown>
-				<onright condition="!System.HasAddon(script.extendedinfo) + String.IsEmpty(ListItem.Trailer)">InstallAddon(script.extendedinfo)</onright>
+				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + !IsEmpty(ListItem.Trailer)">PlayMedia($ESCINFO[ListItem.Trailer],noresume)</ondown>
+				<ondown condition="[Container.Content(Movies) | Container.Content(TVShows)] + IsEmpty(ListItem.Trailer) + System.HasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=youtubebrowser,id=$INFO[ListItem.Label] trailer)</ondown>
 			</control>
 		</control>
 	</include>
@@ -528,7 +525,7 @@
 				<control type="panel" id="970">
 					<visible>Control.IsVisible(590)</visible>
 					<onright>ActivateWindow(1122)</onright>
-					<include content="QuickJumpVerticalLayout">
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -565,7 +562,7 @@
 				<control type="panel" id="971">
 					<visible>Control.IsVisible(591)</visible>
 					<onright>ActivateWindow(1122)</onright>
-					<include content="QuickJumpVerticalLayout">
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -602,7 +599,7 @@
 				<control type="panel" id="972">
 					<visible>Control.IsVisible(592)</visible>
 					<onright>ActivateWindow(1122)</onright>
-					<include content="QuickJumpVerticalLayout">
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -638,7 +635,7 @@
 				
 				<control type="panel" id="973">
 					<visible>Control.IsVisible(593)</visible>
-					<include content="QuickJumpVerticalLayout">
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -673,7 +670,7 @@
 				
 				<control type="panel" id="974">
 					<visible>Control.IsVisible(594)</visible>
-					<include content="QuickJumpVerticalLayout">
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -708,7 +705,7 @@
 				
 				<control type="panel" id="975">
 					<visible>Control.IsVisible(595)</visible>
-					<include content="QuickJumpVerticalLayout">
+					<include name="QuickJumpVerticalLayout">
 						<param name="left" value="1232" />
 						<param name="top" value="113" />
 						<param name="height" value="514" />
@@ -744,7 +741,7 @@
 			<control type="panel" id="976">
 				<visible>Control.IsVisible(596)</visible>
 				<ondown>ActivateWindow(1122)</ondown>
-				<include content="QuickJumpHorizontalLayout">
+				<include name="QuickJumpHorizontalLayout">
 					<param name="left" value="489" />
 					<param name="top" value="462" />
 					<param name="width" value="760" />
@@ -785,7 +782,7 @@
 			<control type="panel" id="977">
 				<visible>Control.IsVisible(597)</visible>
 				<ondown>ActivateWindow(1122)</ondown>
-				<include content="QuickJumpHorizontalLayout">
+				<include name="QuickJumpHorizontalLayout">
 					<param name="left" value="489" />
 					<param name="top" value="462" />
 					<param name="width" value="760" />
@@ -826,7 +823,7 @@
 			<control type="panel" id="978">
 				<visible>Control.IsVisible(598)</visible>
 				<ondown>ActivateWindow(1122)</ondown>
-				<include content="QuickJumpHorizontalLayout">
+				<include name="QuickJumpHorizontalLayout">
 					<param name="left" value="489" />
 					<param name="top" value="462" />
 					<param name="width" value="760" />
@@ -857,7 +854,7 @@
 				<left>1262</left>
 				<top>110</top>
 				<height>500</height>
-				<onleft condition="Window.IsVisible(SkinSettings) | Window.IsVisible(Profiles)">851</onleft>
+				<onleft condition="Window.IsVisible(SkinSettings)">851</onleft>
 				<onleft condition="!Window.IsVisible(SkinSettings)">5</onleft>
 				<visible>!Skin.HasSetting(ExpandedSettings)</visible>
 			</control>	
@@ -921,7 +918,7 @@
 			<control type="panel" id="965">
 				<visible>Control.IsVisible(50)</visible>
 				<onright>50</onright>
-				<include content="QuickJumpVerticalLayout">
+				<include name="QuickJumpVerticalLayout">
 					<param name="left" value="34" />
 					<param name="top" value="113" />
 					<param name="height" value="514" />
@@ -987,6 +984,7 @@
 			
 			<control type="image">
 				<left>325</left>
+				<top>0</top>
 				<width>14</width>
 				<height>325</height>
 				<texture border="4">controls/scrollbar-background.png</texture>
@@ -994,6 +992,7 @@
 			
 			<control type="scrollbar" id="912">
 				<left>325</left>
+				<top>0</top>
 				<height>325</height>
 				<texturesliderbackground>-</texturesliderbackground>
 				<onleft>450</onleft>

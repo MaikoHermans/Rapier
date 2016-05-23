@@ -11,17 +11,20 @@
 	<controls>
 		<control type="group">
 			<depth>DepthDialog-</depth>
+			<include>SubtitlesDialogBox</include>
 			<include>DialogOpenCloseAnim</include>
 			<animation effect="fade" start="100" end="0" time="250" condition="Window.IsActive(AddonSettings)">Conditional</animation>
 			
-			<include content="DialogWithCloseBtnLabelID">
-				<param name="width" value="1050"/>
-				<param name="height" value="511" />
-				<param name="left" value="990" />
-				<param name="labelwidth" value="970" />
-				<param name="label" value="" />
-				<param name="id" value="100" />
-			</include>
+			<control type="label" id="100">
+				<description>Header Label</description>
+				<left>20</left>
+				<top>DialogHeadingOffsetY</top>
+				<width>1010</width>
+				<font>DialogTitleFont</font>
+				<textcolor>DialogTitleColor</textcolor>
+				<shadowcolor>ShadowColor</shadowcolor>
+				<align>center</align>
+			</control>
 				
 			<control type="group">
 				<left>DialogMarginOffsetX</left>
@@ -171,6 +174,7 @@
 						</control>
 						<control type="label">
 							<left>37</left>
+							<top>0</top>
 							<width>80</width>
 							<height>35</height>
 							<font>ButtonFont2</font>
@@ -215,6 +219,7 @@
 						</control>		
 						<control type="label">
 							<left>219</left>
+							<top>0</top>
 							<width>468</width>
 							<height>35</height>
 							<font>ButtonFont2</font>
@@ -253,6 +258,7 @@
 						</control>
 						<control type="label">
 							<left>37</left>
+							<top>0</top>
 							<width>80</width>
 							<height>35</height>
 							<font>ButtonFont2</font>
@@ -297,6 +303,7 @@
 						</control>
 						<control type="label">
 							<left>219</left>
+							<top>0</top>
 							<width>468</width>
 							<height>35</height>
 							<font>ButtonFont2</font>
@@ -360,7 +367,7 @@
 				<textcolor>GreyColor</textcolor>
 				<label>$INFO[Container(120).CurrentPage]$INFO[Container(120).NumPages,/,]</label>
 				<animation effect="fade" end="60" condition="true">Conditional</animation>
-				<visible>!String.IsEqual(Container(120).NumPages,0)</visible>
+				<visible>!StringCompare(Container(120).NumPages,0)</visible>
 			</control>
 			
 			<control type="spincontrol" id="121">

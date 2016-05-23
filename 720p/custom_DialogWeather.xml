@@ -21,7 +21,7 @@
 			<onleft>Dialog.Close(3010)</onleft>
 			<onright>Dialog.Close(3010)</onright>
 			<include>MenuOpenCloseAnim</include>
-			<visible>!String.IsEqual(Weather.Plugin,weather.openweathermap.extended)</visible>
+			<visible>!StringCompare(Weather.Plugin,weather.openweathermap.extended)</visible>
 			<control type="image" id="780">
 				<width>176</width>
 				<include>DropDownMenuTopBorder</include>
@@ -32,10 +32,9 @@
 				<textwidth>140</textwidth>
 				<include>DropDownMenuBtn</include>
 				<label>$LOCALIZE[536]</label>
-				<onclick condition="System.HasAddon(script.image.resource.select)">Dialog.Close(3010)</onclick>
-				<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=WeatherIconsAddon&amp;type=resource.images.weathericons)</onclick>
-				<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
-				<enable>!String.IsEmpty(Weather.Plugin)</enable>
+				<onclick>Dialog.Close(3010)</onclick>
+				<onclick>RunScript(script.image.resource.select,property=WeatherIconsAddon&amp;type=resource.images.weathericons)</onclick>
+				<enable>System.HasAddon(script.image.resource.select) + !IsEmpty(Weather.Plugin)</enable>
 			</control>
 			<control type="button" id="782">
 				<description>Weather Fanart</description>
@@ -43,11 +42,10 @@
 				<textwidth>140</textwidth>
 				<include>DropDownMenuBtn</include>
 				<label>$LOCALIZE[31207]: $LOCALIZE[20445]</label>
-				<onclick condition="System.HasAddon(script.image.resource.select)">Dialog.Close(3010)</onclick>
-				<onclick condition="System.HasAddon(script.image.resource.select)">Skin.SetString(CustomWeatherBGType,5)</onclick>
-				<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=CustomWeatherBGPath&amp;type=resource.images.weatherfanart)</onclick>
-				<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
-				<enable>!String.IsEmpty(Weather.Plugin)</enable>
+				<onclick>Dialog.Close(3010)</onclick>
+				<onclick>Skin.SetString(CustomWeatherBGType,5)</onclick>
+				<onclick>RunScript(script.image.resource.select,property=CustomWeatherBGPath&amp;type=resource.images.weatherfanart)</onclick>
+				<enable>System.HasAddon(script.image.resource.select) + !IsEmpty(Weather.Plugin)</enable>
 			</control>
 			<control type="button" id="783">
 				<description>Settings</description>
@@ -56,7 +54,7 @@
 				<include>DropDownMenuBtn</include>
 				<label>$LOCALIZE[5]</label>
 				<onclick>Dialog.Close(3010)</onclick>
-				<onclick>ActivateWindow(ServiceSettings,weather)</onclick>
+				<onclick>ActivateWindow(WeatherSettings)</onclick>
 			</control>
 			<control type="image" id="784">
 				<width>176</width>
@@ -77,7 +75,7 @@
 			<onleft>Dialog.Close(3010)</onleft>
 			<onright>Dialog.Close(3010)</onright>
 			<include>MenuOpenCloseAnim</include>
-			<visible>String.IsEqual(Weather.Plugin,weather.openweathermap.extended)</visible>
+			<visible>StringCompare(Weather.Plugin,weather.openweathermap.extended)</visible>
 			<control type="image" id="785">
 				<width>147</width>
 				<include>DropDownMenuTopBorder</include>
@@ -88,10 +86,9 @@
 				<textwidth>111</textwidth>
 				<include>DropDownMenuBtn</include>
 				<label>$LOCALIZE[536]</label>
-				<onclick condition="System.HasAddon(script.image.resource.select)">Dialog.Close(3010)</onclick>
-				<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=WeatherIconsAddon&amp;type=resource.images.weathericons)</onclick>
-				<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
-				<enable>!String.IsEmpty(Weather.Plugin)</enable>
+				<onclick>Dialog.Close(3010)</onclick>
+				<onclick>RunScript(script.image.resource.select,property=WeatherIconsAddon&amp;type=resource.images.weathericons)</onclick>
+				<enable>System.HasAddon(script.image.resource.select) + !IsEmpty(Weather.Plugin)</enable>
 			</control>
 			<control type="button" id="787">
 				<description>Weather Fanart</description>
@@ -99,11 +96,10 @@
 				<textwidth>111</textwidth>
 				<include>DropDownMenuBtn</include>
 				<label>$LOCALIZE[31207]: $LOCALIZE[20445]</label>
-				<onclick condition="System.HasAddon(script.image.resource.select)">Dialog.Close(3010)</onclick>
-				<onclick condition="System.HasAddon(script.image.resource.select)">Skin.SetString(CustomWeatherBGType,5)</onclick>
-				<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=CustomWeatherBGPath&amp;type=resource.images.weatherfanart)</onclick>
-				<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
-				<enable>!String.IsEmpty(Weather.Plugin)</enable>
+				<onclick>Dialog.Close(3010)</onclick>
+				<onclick>Skin.SetString(CustomWeatherBGType,5)</onclick>
+				<onclick>RunScript(script.image.resource.select,property=CustomWeatherBGPath&amp;type=resource.images.weatherfanart)</onclick>
+				<enable>System.HasAddon(script.image.resource.select) + !IsEmpty(Weather.Plugin)</enable>
 			</control>
 			<control type="button" id="788">
 				<description>Settings</description>
@@ -112,7 +108,7 @@
 				<include>DropDownMenuBtn</include>
 				<label>$LOCALIZE[5]</label>
 				<onclick>Dialog.Close(3010)</onclick>
-				<onclick>ActivateWindow(ServiceSettings,weather)</onclick>
+				<onclick>ActivateWindow(WeatherSettings)</onclick>
 			</control>
 			<control type="image" id="789">
 				<width>147</width>

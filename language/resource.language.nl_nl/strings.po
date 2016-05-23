@@ -437,8 +437,12 @@ msgid "List Info 2"
 msgstr "Lijst info 2"
 
 msgctxt "#31113"
-msgid "Wall"
-msgstr "Muur"
+msgid "Wall Horizon"
+msgstr "Muur Horizon"
+
+msgctxt "#311131"
+msgid "Wall Verti"
+msgstr "Muur Verti"
 
 msgctxt "#31114"
 msgid "Wide List"

@@ -137,7 +137,8 @@
 		</font>
 		<font>
 			<name>MusicPlayingHomeFont</name>
-			<filename>default-bold-caps.ttf</filename>
+			<filename>arial-caps.ttf</filename>
+			<style>bold</style>
 			<size>65</size>
 		</font>
 		
@@ -628,8 +629,7 @@
 		</font>
 		<font>
 			<name>MusicPlayingHomeFont</name>
-			<filename>arial-caps.ttf</filename>
-			<style>bold</style>
+			<filename>default-bold-caps.ttf</filename>
 			<size>64</size>
 		</font>
 		

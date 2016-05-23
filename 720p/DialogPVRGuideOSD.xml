@@ -10,15 +10,15 @@
 	<controls>
 		<control type="group">
 			<depth>DepthOSD</depth>
+			<include>PVRGuideOSDDialogBox</include>
 			<include>DialogOpenCloseAnim</include>	
-			
-			<include content="DialogWithCloseBtnLabel">
-				<param name="width" value="500"/>
-				<param name="height" value="558" />
-				<param name="left" value="440" />
-				<param name="labelwidth" value="420" />
-				<param name="label" value="$LOCALIZE[19069] - $INFO[VideoPlayer.ChannelName]" />
-			</include>
+
+			<control type="label">
+				<description>Title</description>
+				<width>420</width>
+				<label>$LOCALIZE[19069] - $INFO[VideoPlayer.ChannelName]</label>
+				<include>DialogTitle</include>
+			</control>
 
 			<control type="group">
 				<left>DialogMarginOffsetX</left>
@@ -36,11 +36,13 @@
 					<scrolltime tween="sine" easing="inout">300</scrolltime>
 					<itemlayout height="74">
 						<control type="image">
+							<left>0</left>
 							<width>430</width>
 							<height>74</height>	
 							<texture border="0,0,10,2">views/list-separator.png</texture>
 							<aspectratio>stretch</aspectratio>
 						</control>
+
 						<control type="label">
 							<description>Time</description>
 							<left>10</left>
@@ -51,6 +53,7 @@
 							<shadowcolor>ShadowColor</shadowcolor>
 							<label>$INFO[ListItem.StartTime]</label>
 						</control>
+
 						<control type="label">
 							<description>Label</description>
 							<left>88</left>
@@ -62,6 +65,7 @@
 							<label>$INFO[ListItem.Title]</label>
 							<scroll>true</scroll>
 						</control>
+
 						<control type="label">
 							<description>Label2</description>
 							<left>88</left>
@@ -73,14 +77,18 @@
 							<label>$INFO[ListItem.StartDate]</label>
 						</control>
 					</itemlayout>
+
 					<focusedlayout height="74">	
 						<control type="image">
+							<left>0</left>
 							<width>430</width>
 							<height>74</height>	
 							<texture border="0,0,10,2">views/list-separator.png</texture>
 							<aspectratio>stretch</aspectratio>
 						</control>
+
 						<control type="image">
+							<left>0</left>
 							<width>430</width>
 							<height>73</height>
 							<texture border="4">views/list-focus.png</texture>
@@ -89,7 +97,9 @@
 							<include>ListViewSelectFadeAnim</include>
 							<include>ListViewScrollAnim</include>
 						</control>
+
 						<control type="image">
+							<left>0</left>
 							<width>430</width>
 							<height>73</height>
 							<texture border="4">views/list-alt-focus.png</texture>
@@ -97,6 +107,7 @@
 							<visible>!Control.HasFocus(11)</visible>
 							<include>ListViewSelectFadeAnim2</include>
 						</control>
+
 						<control type="group">
 							<include>ListViewFocusAnim</include>
 							<control type="label">
@@ -109,6 +120,7 @@
 								<shadowcolor>ShadowColor</shadowcolor>
 								<label>$INFO[ListItem.StartTime]</label>
 							</control>
+
 							<control type="label">
 								<description>Label</description>
 								<left>88</left>
@@ -120,6 +132,7 @@
 								<label>$INFO[ListItem.Title]</label>
 								<scroll>true</scroll>
 							</control>
+
 							<control type="label">
 								<description>Label2</description>
 								<left>88</left>

@@ -32,7 +32,8 @@
 					<label>$LOCALIZE[31911]</label>
 					<onclick condition="System.hasAddon(script.globalsearch)">Dialog.Close(1107)</onclick>
 					<onclick condition="System.hasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
-					<onclick condition="!System.hasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
+					<onclick condition="!System.hasAddon(script.globalsearch)">RunPlugin(plugin://script.globalsearch)</onclick>
+					<onclick condition="!System.hasAddon(script.globalsearch)">StopScript(script.globalsearch)</onclick>
 					<width>300</width>
 					<textwidth>290</textwidth>
 					<include>ContextMenuBtn</include>
@@ -42,7 +43,8 @@
 					<label>$LOCALIZE[31092]</label>
 					<onclick condition="System.hasAddon(plugin.video.youtube)">Dialog.Close(1107)</onclick>
 					<onclick condition="System.hasAddon(plugin.video.youtube)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/input/,return)</onclick>
-					<onclick condition="!System.hasAddon(plugin.video.youtube)">InstallAddon(plugin.video.youtube)</onclick>
+					<onclick condition="!System.hasAddon(plugin.video.youtube)">RunPlugin(plugin://plugin.video.youtube)</onclick>
+					<onclick condition="!System.hasAddon(plugin.video.youtube)">StopScript(plugin.video.youtube)</onclick>
 					<width>300</width>
 					<textwidth>290</textwidth>
 					<include>ContextMenuBtn</include>
@@ -52,7 +54,8 @@
 					<label>$LOCALIZE[31912]</label>
 					<onclick condition="System.hasAddon(script.extendedinfo)">Dialog.Close(1107)</onclick>
 					<onclick condition="System.hasAddon(script.extendedinfo)">RunScript(script.extendedinfo,info=moviedbbrowser,search=True)</onclick>
-					<onclick condition="!System.hasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</onclick>
+					<onclick condition="!System.hasAddon(script.extendedinfo)">RunPlugin(plugin://script.extendedinfo)</onclick>
+					<onclick condition="!System.hasAddon(script.extendedinfo)">StopScript(script.extendedinfo)</onclick>
 					<width>300</width>
 					<textwidth>290</textwidth>
 					<include>ContextMenuBtn</include>

@@ -9,7 +9,7 @@
 		<control type="group">
 			<depth>DepthBackground</depth>
 			<include>BackgroundDefault</include>
-			<include condition="[[!String.IsEmpty(Skin.String(CustomMusicBGPath)) + [Skin.String(CustomMusicBGType,2) | Skin.String(CustomMusicBGType,3)]] 
+			<include condition="[[!IsEmpty(Skin.String(CustomMusicBGPath)) + [Skin.String(CustomMusicBGType,2) | Skin.String(CustomMusicBGType,3)]] 
 			| Skin.String(CustomMusicBGType,4)] + Skin.HasSetting(ApplyAllMusicCustomBG)">BackgroundMusic</include>
 			<include>BackgroundAddonsFanart</include>
 			<include>BackgroundMusicFanart</include>
@@ -21,7 +21,7 @@
 		<control type="group">
 			<visible>![Window.IsActive(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsActive(script-ExtendedInfo Script-DialogInfo.xml)]</visible>
 			<control type="group">
-				<visible>!Window.IsActive(MusicInformation) + !Window.IsActive(SongInformation) + !Window.IsActive(MovieInformation) + !Window.IsActive(AddonInformation)</visible>
+				<visible>!Window.IsActive(MusicInformation) + !Window.IsActive(MovieInformation) + !Window.IsActive(AddonInformation)</visible>
 				<depth>DepthContent</depth>
 				<include>MediaInfoOpenCloseAnim</include>
 				<include>IconView</include> <!-- 50 -->

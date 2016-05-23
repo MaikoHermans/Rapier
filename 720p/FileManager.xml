@@ -105,6 +105,7 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>470</width>
 						<height>36</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -114,6 +115,7 @@
 						<include>ListViewFileManagerScrollAnim</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>470</width>
 						<height>36</height>	
 						<texture border="4">views/list-alt-focus.png</texture>
@@ -212,6 +214,7 @@
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>470</width>
 						<height>36</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -221,6 +224,7 @@
 						<include>ListViewFileManagerScrollAnim2</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>470</width>
 						<height>36</height>	
 						<texture border="4">views/list-alt-focus.png</texture>
@@ -306,14 +310,14 @@
 						<description>Total Space</description>
 						<include>FileManagerInfoLabel</include>
 						<label>$INFO[System.Totalspace]</label>
-						<visible>!String.IsEmpty(System.Totalspace)</visible>
+						<visible>!IsEmpty(System.Totalspace)</visible>
 					</control>
 					<control type="textbox">
 						<description>Free Space</description>
 						<top>2</top>
 						<include>FileManagerInfoLabel2</include>
 						<label fallback="31000">$INFO[System.Freespace]</label>
-						<visible>!String.IsEmpty(System.Freespace)</visible>
+						<visible>!IsEmpty(System.Freespace)</visible>
 					</control>
 				</control> 
 			</control>

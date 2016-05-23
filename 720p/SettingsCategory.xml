@@ -7,7 +7,7 @@
 	    <control type="group">
 			<depth>DepthBackground</depth>
     		<include>BackgroundDefault</include>
-			<include condition="!String.IsEmpty(Skin.String(CustomSystemBGPath)) + Skin.HasSetting(ApplyAllSystemCustomBG)">BackgroundSystem</include>
+			<include condition="!IsEmpty(Skin.String(CustomSystemBGPath)) + Skin.HasSetting(ApplyAllSystemCustomBG)">BackgroundSystem</include>
 			<include>BackgroundOpenCloseAnim</include>
 		</control>
 
@@ -110,23 +110,14 @@
 			</control>
 			
 			<control type="label" id="14">
-				<!--<height>49</height>-->
-				<height>50</height>
-				<width>755</width>
-				<aligny>center</aligny>
-				<font>SettingsHeadFont</font>
-				<textcolor>ContentTitleColor</textcolor>
+				<left>10</left>
+				<height>35</height>
+				<width>735</width>
+				<align>center</align>
+				<font>SettingsContentFont</font>
+				<textcolor>SettingsContentColor</textcolor>
 				<shadowcolor>ShadowColor</shadowcolor>
 			</control>
-			
-			<!--
-			<control type="image" id="11">
-				<description>Seperator</description>
-				<animation effect="slide" end="0,50" condition="true">Conditional</animation>
-				<height>1</height>
-				<texture border="5">controls/settings-button-nofocus.png</texture>
-			</control>
-			-->
 			
 			<control type="group">
 				<description>Bottom Bar Area</description>

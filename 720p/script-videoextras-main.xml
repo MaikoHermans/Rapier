@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="3001">
-	<onload condition="!String.IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "TvShows")</onload>
-	<onload condition="String.IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "Movies")</onload>
+	<onload condition="!IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "TvShows")</onload>
+	<onload condition="IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "Movies")</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<defaultcontrol always="true">51</defaultcontrol>
 	<menucontrol>987</menucontrol>
@@ -10,9 +10,9 @@
 	<controls>
 		<control type="group">
 			<depth>DepthBackground</depth>
-			<include condition="[[!String.IsEmpty(Skin.String(CustomMoviesBGPath)) + [Skin.String(CustomMoviesBGType,2) | Skin.String(CustomMoviesBGType,3)]] 
+			<include condition="[[!IsEmpty(Skin.String(CustomMoviesBGPath)) + [Skin.String(CustomMoviesBGType,2) | Skin.String(CustomMoviesBGType,3)]] 
 			| Skin.String(CustomMoviesBGType,4)] + Skin.HasSetting(ApplyAllMoviesCustomBG)">BackgroundMovies</include>
-			<include condition="[[!String.IsEmpty(Skin.String(CustomTVShowsBGPath)) + [Skin.String(CustomTVShowsBGType,2) | Skin.String(CustomTVShowsBGType,3)]] 
+			<include condition="[[!IsEmpty(Skin.String(CustomTVShowsBGPath)) + [Skin.String(CustomTVShowsBGType,2) | Skin.String(CustomTVShowsBGType,3)]] 
 			| Skin.String(CustomTVShowsBGType,4)] + Skin.HasSetting(ApplyAllTVShowsCustomBG)">BackgroundTVShows</include>
 			<include>FanartImage</include>
 			<include>FanartDim</include>
@@ -76,6 +76,7 @@
 				<scrolltime tween="sine" easing="inout">300</scrolltime>				
 				<itemlayout height="37">
 					<control type="image">
+						<left>0</left>
 						<width>720</width>
 						<height>37</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
@@ -103,7 +104,7 @@
 						<align>right</align>
 						<aligny>center</aligny>				
 						<info>ListItem.Label2</info>
-						<visible>!String.IsEmpty(ListItem.Label2)</visible>
+						<visible>!IsEmpty(ListItem.Label2)</visible>
 					</control>					
 					<control type="image">
 						<description>Quality</description>
@@ -113,7 +114,7 @@
 						<height>24</height>
 						<texture background="true">$VAR[VideoQualityOverlayUnwatched]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>!String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>!StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						<include>ListViewOverlayFadeAnim</include>
 					</control>	
 					<control type="image">
@@ -124,7 +125,7 @@
 						<height>24</height>
 						<texture background="true">$VAR[VideoQualityOverlayWatched]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						<include>ListViewOverlayFadeAnim</include>
 					</control>
 					<control type="image">
@@ -148,17 +149,19 @@
 						<texture background="true">OverlayWatched.png</texture>
 						<aspectratio>stretch</aspectratio>
 						<include>ListViewOverlayFadeAnim</include>
-						<visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+						<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
 					</control>	
 				</itemlayout>
 				<focusedlayout height="37" condition="Skin.HasSetting(HideVideoExtrasPlot) |  Container(51).Position(0)">
 					<control type="image">
+						<left>0</left>
 						<width>720</width>
 						<height>37</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>720</width>
 						<height>36</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -168,6 +171,7 @@
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewScrollAnim</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>720</width>
 						<height>36</height>	
 						<texture border="4">views/list-alt-focus.png</texture>
@@ -200,7 +204,7 @@
 							<align>right</align>
 							<aligny>center</aligny>				
 							<info>ListItem.Label2</info>
-							<visible>!String.IsEmpty(ListItem.Label2)</visible>
+							<visible>!IsEmpty(ListItem.Label2)</visible>
 						</control>						
 						<control type="image">
 							<description>Quality</description>
@@ -210,7 +214,7 @@
 							<height>24</height>
 							<texture background="true">$VAR[VideoQualityOverlayUnwatched]</texture>
 							<aspectratio>stretch</aspectratio>
-							<visible>!String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+							<visible>!StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						</control>	
 						<control type="image">
 							<description>Quality</description>
@@ -220,7 +224,7 @@
 							<height>24</height>
 							<texture background="true">$VAR[VideoQualityOverlayWatched]</texture>
 							<aspectratio>stretch</aspectratio>
-							<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						</control>
 						<control type="image">
 							<description>Watched Partial</description>
@@ -243,18 +247,20 @@
 							<texture background="true">OverlayWatched.png</texture>
 							<aspectratio>stretch</aspectratio>
 							<include>ListViewOverlayFadeAnim</include>
-							<visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+							<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
 						</control>
 					</control>				
 				</focusedlayout>
 				<focusedlayout height="74" condition="!Skin.HasSetting(HideVideoExtrasPlot) + !Container(51).Position(0)">
 					<control type="image">
+						<left>0</left>
 						<width>720</width>
 						<height>74</height>	
 						<texture border="0,0,10,2">views/list-separator.png</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>720</width>
 						<height>73</height>	
 						<texture border="4">views/list-focus.png</texture>
@@ -263,6 +269,7 @@
 						<include condition="![Skin.String(LowCPUPowerMode,Animations) | Skin.String(LowCPUPowerMode,Full)]">ListViewScrollAnim</include>
 					</control>
 					<control type="image">
+						<left>0</left>
 						<width>720</width>
 						<height>73</height>	
 						<texture border="4">views/list-alt-focus.png</texture>
@@ -295,7 +302,7 @@
 							<align>right</align>
 							<aligny>center</aligny>				
 							<info>ListItem.Label2</info>
-							<visible>!String.IsEmpty(ListItem.Label2)</visible>
+							<visible>!IsEmpty(ListItem.Label2)</visible>
 						</control>
 						<control type="label">
 							<description>Plot</description>
@@ -317,7 +324,7 @@
 							<height>24</height>
 							<texture background="true">$VAR[VideoQualityOverlayUnwatched]</texture>
 							<aspectratio>stretch</aspectratio>
-							<visible>!String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+							<visible>!StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						</control>	
 						<control type="image">
 							<description>Quality</description>
@@ -327,7 +334,7 @@
 							<height>24</height>
 							<texture background="true">$VAR[VideoQualityOverlayWatched]</texture>
 							<aspectratio>stretch</aspectratio>
-							<visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						</control>
 						<control type="image">
 							<description>Watched Partial</description>
@@ -350,7 +357,7 @@
 							<texture background="true">OverlayWatched.png</texture>
 							<aspectratio>stretch</aspectratio>
 							<include>ListViewOverlayFadeAnim</include>
-							<visible>Integer.IsGreater(ListItem.PlayCount,0)</visible>
+							<visible>IntegerGreaterThan(ListItem.PlayCount,0)</visible>
 						</control>
 					</control>				
 				</focusedlayout>

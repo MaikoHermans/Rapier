@@ -12,13 +12,23 @@
 			<depth>DepthDialog</depth>
 			<include>DialogOpenCloseAnim</include>
 			
-			<include content="DialogWithCloseBtnLabel">
-				<param name="width" value="1050"/>
-				<param name="height" value="510" />
-				<param name="left" value="990" />
-				<param name="labelwidth" value="980" />
-				<param name="label" value="$ADDON[plugin.image.mypicsdb 30600]" />
-			</include>
+			<control type="image">
+				<width>1050</width>
+				<height>510</height>
+				<texture border="50,70,50,75">panels/dialog-background.png</texture>
+			</control>
+			
+			<control type="button">
+				<left>990</left>
+				<include>DialogCloseBtn</include>
+			</control>
+			
+			<control type="label">
+                <description>Filter Wizard Label</description>
+                <width>980</width>
+				<include>DialogTitle</include>
+				<label>$ADDON[plugin.image.mypicsdb 30600]</label>
+            </control>
 			
 			<control type="label" id="100">
 				<description>Header</description>
@@ -274,7 +284,7 @@
 								<aligny>center</aligny>
 								<aspectratio>keep</aspectratio>
 								<texture>OverlayWatched.png</texture>
-								<visible>String.IsEqual(ListItem.Property(checked),checkbutton.png)</visible>
+								<visible>StringCompare(ListItem.Property(checked),checkbutton.png)</visible>
 							</control>
 							<control type="image">
 								<left>326</left>
@@ -283,7 +293,7 @@
 								<aligny>center</aligny>
 								<aspectratio>keep</aspectratio>
 								<texture colordiffuse="ffff0000">OverlayWatchedWhite.png</texture>
-								<visible>String.IsEqual(ListItem.Property(checked),uncheckbutton.png)</visible>
+								<visible>StringCompare(ListItem.Property(checked),uncheckbutton.png)</visible>
 							</control>
 						</itemlayout>
 						<focusedlayout height="40" width="366">
@@ -322,7 +332,7 @@
 								<aligny>center</aligny>
 								<aspectratio>keep</aspectratio>
 								<texture>OverlayWatched.png</texture>
-								<visible>String.IsEqual(ListItem.Property(checked),checkbutton.png)</visible>
+								<visible>StringCompare(ListItem.Property(checked),checkbutton.png)</visible>
 							</control>
 							<control type="image">
 								<left>326</left>
@@ -331,7 +341,7 @@
 								<aligny>center</aligny>
 								<aspectratio>keep</aspectratio>
 								<texture colordiffuse="ffff0000">OverlayWatchedWhite.png</texture>
-								<visible>String.IsEqual(ListItem.Property(checked),uncheckbutton.png)</visible>
+								<visible>StringCompare(ListItem.Property(checked),uncheckbutton.png)</visible>
 							</control>
 						</focusedlayout>
 					</control>

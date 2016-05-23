@@ -11,13 +11,22 @@
 			<depth>DepthDialog</depth>
 			<include>DialogOpenCloseAnim</include>
 			
-			<include content="DialogWithCloseBtnLabel">
-				<param name="width" value="430"/>
-				<param name="height" value="220" />
-				<param name="left" value="370" />
-				<param name="labelwidth" value="350" />
-				<param name="label" value="$LOCALIZE[38023]" />
-			</include>
+			<control type="image">
+				<width>430</width>
+				<height>220</height>
+				<texture border="50,70,50,75">panels/dialog-background.png</texture>
+			</control>
+
+			<control type="button">
+				<left>370</left>
+				<include>DialogCloseBtn</include>
+			</control>
+			
+			<control type="label">
+				<width>350</width>
+				<include>DialogTitle</include>
+				<label>$LOCALIZE[38023]</label>
+			</control>
 			
 			<control type="label" id="10010">
 				<left>2000</left>

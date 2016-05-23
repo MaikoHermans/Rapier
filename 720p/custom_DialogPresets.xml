@@ -10,15 +10,13 @@
 	<controls>
 		<control type="group">
 			<depth>DepthDialog</depth>
+			<include>PresetsDialogBox</include>
 			<include>DialogOpenCloseAnim</include>
-			
-			<include content="DialogWithCloseBtnLabel">
-				<param name="width" value="670"/>
-				<param name="height" value="440" />
-				<param name="left" value="610" />
-				<param name="labelwidth" value="590" />
-				<param name="label" value="$LOCALIZE[31606]" />
-			</include>
+
+			<control type="label">
+				<include>DialogTitle</include>
+				<label>$LOCALIZE[31606]</label>
+			</control>
 
 			<control type="group">		
 				<left>DialogMarginOffsetX</left>
@@ -460,16 +458,9 @@
 							<visible>Container(450).HasFocus(2)</visible>
 						</item>
 						<item id="22">
-							<description>TV Timers</description>
+							<description>TV Timer</description>
 							<label>$LOCALIZE[19040]</label>
 							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(TVTimers))</onclick>
-							<onclick>Dialog.Close(3006)</onclick>
-							<visible>Container(450).HasFocus(2)</visible>
-						</item>
-						<item id="120">
-							<description>TV Timer Rules</description>
-							<label>$LOCALIZE[19138]</label>
-							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(TVTimerRules))</onclick>
 							<onclick>Dialog.Close(3006)</onclick>
 							<visible>Container(450).HasFocus(2)</visible>
 						</item>
@@ -503,16 +494,9 @@
 							<visible>Container(450).HasFocus(3)</visible>
 						</item>
 						<item id="27">
-							<description>Radio Timers</description>
+							<description>Radio Timer</description>
 							<label>$LOCALIZE[19040]</label>
 							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(RadioTimers))</onclick>
-							<onclick>Dialog.Close(3006)</onclick>
-							<visible>Container(450).HasFocus(3)</visible>
-						</item>
-						<item id="121">
-							<description>Radio Timer Rules</description>
-							<label>$LOCALIZE[19138]</label>
-							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(RadioTimerRules))</onclick>
 							<onclick>Dialog.Close(3006)</onclick>
 							<visible>Container(450).HasFocus(3)</visible>
 						</item>
@@ -753,7 +737,7 @@
 						<item id="104">
 							<description>In Progress TV Shows</description>
 							<label>$LOCALIZE[626]</label>
-							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(Videos,InProgressTvShows,Return))</onclick>
+							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(Videos,library://video/inprogressshows.xml/,Return))</onclick>
 							<onclick>Dialog.Close(3006)</onclick>
 							<visible>Container(450).HasFocus(6)</visible>
 						</item>
@@ -946,30 +930,16 @@
 						</item>
 
 						<item id="68">
-							<description>Interface Settings</description>
-							<label>$LOCALIZE[14206]</label>
-							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(InterfaceSettings))</onclick>
-							<onclick>Dialog.Close(3006)</onclick>
-							<visible>Container(450).HasFocus(11)</visible>
-						</item>
-						<item id="76">
-							<description>Skin Settings</description>
-							<label>$LOCALIZE[166]</label>
-							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(SkinSettings))</onclick>
+							<description>Appearance Settings</description>
+							<label>$LOCALIZE[480]</label>
+							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(AppearanceSettings))</onclick>
 							<onclick>Dialog.Close(3006)</onclick>
 							<visible>Container(450).HasFocus(11)</visible>
 						</item>
 						<item id="69">
-							<description>Player Settings</description>
-							<label>$LOCALIZE[14200]</label>
-							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(PlayerSettings))</onclick>
-							<onclick>Dialog.Close(3006)</onclick>
-							<visible>Container(450).HasFocus(11)</visible>
-						</item>
-						<item id="71">
-							<description>Library Settings</description>
-							<label>$LOCALIZE[14202]</label>
-							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(LibrarySettings))</onclick>
+							<description>Videos Settings</description>
+							<label>$LOCALIZE[3]</label>
+							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(VideosSettings))</onclick>
 							<onclick>Dialog.Close(3006)</onclick>
 							<visible>Container(450).HasFocus(11)</visible>
 						</item>
@@ -977,6 +947,27 @@
 							<description>PVR Settings</description>
 							<label>$LOCALIZE[19180]</label>
 							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(PVRSettings))</onclick>
+							<onclick>Dialog.Close(3006)</onclick>
+							<visible>Container(450).HasFocus(11)</visible>
+						</item>
+						<item id="71">
+							<description>Music Settings</description>
+							<label>$LOCALIZE[2]</label>
+							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(MusicSettings))</onclick>
+							<onclick>Dialog.Close(3006)</onclick>
+							<visible>Container(450).HasFocus(11)</visible>
+						</item>
+						<item id="72">
+							<description>Pictures Settings</description>
+							<label>$LOCALIZE[1]</label>
+							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(PicturesSettings))</onclick>
+							<onclick>Dialog.Close(3006)</onclick>
+							<visible>Container(450).HasFocus(11)</visible>
+						</item>
+						<item id="73">
+							<description>Weather Settings</description>
+							<label>$LOCALIZE[8]</label>
+							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(WeatherSettings))</onclick>
 							<onclick>Dialog.Close(3006)</onclick>
 							<visible>Container(450).HasFocus(11)</visible>
 						</item>
@@ -994,10 +985,10 @@
 							<onclick>Dialog.Close(3006)</onclick>
 							<visible>Container(450).HasFocus(11)</visible>
 						</item>
-						<item id="72">
-							<description>Profiles Settings</description>
-							<label>$LOCALIZE[13200]</label>
-							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(Profiles))</onclick>
+						<item id="76">
+							<description>Skin Settings</description>
+							<label>$LOCALIZE[166]</label>
+							<onclick>Skin.SetString($INFO[Skin.String(CustomBtnPresetsParam)],ActivateWindow(SkinSettings))</onclick>
 							<onclick>Dialog.Close(3006)</onclick>
 							<visible>Container(450).HasFocus(11)</visible>
 						</item>
@@ -1131,9 +1122,9 @@
 						<texturenofocus border="5">controls/arrow-scroll-up-nofocus4.png</texturenofocus>
 						<onclick>Control.SetFocus(450)</onclick>
 						<onclick>PageUp</onclick>
-						<onclick condition="!String.IsEqual(Container(450).CurrentPage,1)">Control.SetFocus(151)</onclick>
-						<onclick condition="String.IsEqual(Container(450).CurrentPage,1)">Control.SetFocus(450)</onclick>
-						<visible>!String.IsEqual(Container(450).NumPages,1) + !String.IsEqual(Container(450).CurrentPage,1)</visible>
+						<onclick condition="!StringCompare(Container(450).CurrentPage,1)">Control.SetFocus(151)</onclick>
+						<onclick condition="StringCompare(Container(450).CurrentPage,1)">Control.SetFocus(450)</onclick>
+						<visible>!StringCompare(Container(450).NumPages,1) + !StringCompare(Container(450).CurrentPage,1)</visible>
 					</control>
 
 					<control type="button" id="152">
@@ -1147,9 +1138,9 @@
 						<texturenofocus border="5" flipy="true">controls/arrow-scroll-up-nofocus4.png</texturenofocus>
 						<onclick>Control.SetFocus(450)</onclick>
 						<onclick>PageDown</onclick>
-						<onclick condition="!String.IsEqual(Container(450).CurrentPage,Container(450).NumPages)">Control.SetFocus(152)</onclick>
-						<onclick condition="String.IsEqual(Container(450).CurrentPage,Container(450).NumPages)">Control.SetFocus(450)</onclick>
-						<visible>!String.IsEqual(Container(450).NumPages,1) + !String.IsEqual(Container(450).CurrentPage,Container(450).NumPages)</visible>
+						<onclick condition="!StringCompare(Container(450).CurrentPage,Container(450).NumPages)">Control.SetFocus(152)</onclick>
+						<onclick condition="StringCompare(Container(450).CurrentPage,Container(450).NumPages)">Control.SetFocus(450)</onclick>
+						<visible>!StringCompare(Container(450).NumPages,1) + !StringCompare(Container(450).CurrentPage,Container(450).NumPages)</visible>
 					</control>
 				</control>
 
@@ -1167,9 +1158,9 @@
 						<texturenofocus border="5">controls/arrow-scroll-up-nofocus4.png</texturenofocus>
 						<onclick>Control.SetFocus(451)</onclick>
 						<onclick>PageUp</onclick>
-						<onclick condition="!String.IsEqual(Container(451).CurrentPage,1)">Control.SetFocus(251)</onclick>
-						<onclick condition="String.IsEqual(Container(451).CurrentPage,1)">Control.SetFocus(451)</onclick>
-						<visible>!String.IsEqual(Container(451).NumPages,1) + !String.IsEqual(Container(451).CurrentPage,1)</visible>
+						<onclick condition="!StringCompare(Container(451).CurrentPage,1)">Control.SetFocus(251)</onclick>
+						<onclick condition="StringCompare(Container(451).CurrentPage,1)">Control.SetFocus(451)</onclick>
+						<visible>!StringCompare(Container(451).NumPages,1) + !StringCompare(Container(451).CurrentPage,1)</visible>
 					</control>
 
 					<control type="button" id="252">
@@ -1183,9 +1174,9 @@
 						<texturenofocus border="5" flipy="true">controls/arrow-scroll-up-nofocus4.png</texturenofocus>
 						<onclick>Control.SetFocus(451)</onclick>
 						<onclick>PageDown</onclick>
-						<onclick condition="!String.IsEqual(Container(451).CurrentPage,Container(451).NumPages)">Control.SetFocus(252)</onclick>
-						<onclick condition="String.IsEqual(Container(451).CurrentPage,Container(451).NumPages)">Control.SetFocus(451)</onclick>
-						<visible>!String.IsEqual(Container(451).NumPages,1) + !String.IsEqual(Container(451).CurrentPage,Container(451).NumPages)</visible>
+						<onclick condition="!StringCompare(Container(451).CurrentPage,Container(451).NumPages)">Control.SetFocus(252)</onclick>
+						<onclick condition="StringCompare(Container(451).CurrentPage,Container(451).NumPages)">Control.SetFocus(451)</onclick>
+						<visible>!StringCompare(Container(451).NumPages,1) + !StringCompare(Container(451).CurrentPage,Container(451).NumPages)</visible>
 					</control>
 				</control>
 			</control>

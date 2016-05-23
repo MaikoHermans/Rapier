@@ -1,16 +1,16 @@
 ------------------------
-[B]10.1.7 (22-May-16)[/B]
+[B]9.5.7 (22-May-16)[/B]
 ------------------------
 - Added watched and partially watched overlays to Icon View with view option to disable them (thanks to MaikoHermans).
 
 ------------------------
-[B]10.1.6 (17-May-16)[/B]
+[B]9.5.6 (17-May-16)[/B]
 ------------------------
 - Added "Enable Low CPU Power Mode" button to Skin Settings > General. This replaces "Animations" section and can disable animations and reset CPU demanding skin settings.
 - Added home screen music playlist widget with player controls.
 
 ------------------------
-[B]10.1.5 (12-May-16)[/B]
+[B]9.5.5 (12-May-16)[/B]
 ------------------------
 - All Youtube searches will now use ExtendedInfo with Youtube Browser window.
 - Added List View and List Info 2 View to Youtube Browser window.
@@ -18,41 +18,27 @@
 - Skin Settings: Custom backgrounds preview image is now dimmed according to settings when "Background Brightness" button is focused.
 
 ------------------------
-[B]10.1.4 (4-May-16)[/B]
+[B]9.5.4 (4-May-16)[/B]
 ------------------------
 - Fixed home screen addon shortcut focus animation.
-- Updated script.rss.editor for Krypton.
+- Update of script.rss.editor windows.
 - Next Aired infolabels will now properly use a fallback label.
 - Added Subtitle Position button to fullscreen video OSD subtitles popup.
-- Updated DialogSelect.xml label2 for Krypton.
 - Updated descriptions for Supported Add-ons with "Required" labels.
 - The selected Skin Settings section button will now stay highlighted when other items are focused.
-- Settings changes for Krypton.
-- Updated Profiles window and added it as part of the Settings window.
-- Added Add-ons button to menubar in Settings window.
 - Added oninfo to Programs views to open custom programs window.
 - Added Quick Jump navigation, which can be enabled in the Skin Settings.
 
 ------------------------
-[B]10.1.3 (23-April-16)[/B]
+[B]9.5.3 (17-April-16)[/B]
 ------------------------
 - Skinned dialog for script.user.rating (requires v1.0.2 or higher).
 - Fixed home screen custom widget scroll animation.
-- Massive code cleanup.
 - Bugfixing of add-on settings dialog and system settings radio buttons.
-- New default icons.
-- Switched to using ListItem.DBTYPE for items inside info windows.
-- Update of script-ExtendedInfo Script-YoutubeList.xml
-- Completely removed codec information from music visualisation and fullscreen video.
 
 ------------------------
-[B]10.1.2 (11-April-16)[/B]
+[B]9.5.2 (8-April-16)[/B]
 ------------------------
-- Animated posters are available for all movie and sets views.
-- Updated includes.
-- Code cleanup.
-- More ExtendedInfo Krypton changes.
-- Added Movie Set button to movie information window Extra Info dialog.
 - Added Similar Movies button to movie information window Extra Info dialog for movie sets.
 - Added onclick function to movie / tv shows information window Similar Movies / TV Shows list.
 - Fix for top options menubar Update Library button.
@@ -60,22 +46,18 @@
 - Added ExtendedInfo TV Show Information in season and episode levels.
 - Skin Settings > Supported Add-ons section will now have add-on descriptions.
 - Skin Settings will now have main category descriptions.
-- Updated script.globalsearch for Krypton.
-- Oninfo changes for Krypton.
-- New default icons.
 
 ------------------------
-[B]10.1.1 (3-April-16)[/B]
+[B]9.5.1 (3-April-16)[/B]
 ------------------------
-- Changed to new infobools.
-- New default icons.
 - Updated screenshots.
 - Removed startup background and skin logo.
 - Added Search button to presets dialog when creating custom categories and submenus.
+- Animated posters are available for all movie and sets views.
 - Updated language files from Transifex.
 
 ------------------------
-[B]10.1.0 (30-March-16)[/B]
+[B]9.5.0 (30-March-16)[/B]
 ------------------------
 - Added Search dialog when search button or home screen Kodi logo button is clicked.
 - Added Search submenu button to the home screen General category.
@@ -84,19 +66,10 @@
 - Added new Icon View for movie sets.
 - Updated language files from Transifex.
 - ExtendedInfo video information window trailer button now closes the window if a trailer exists.
-- Buttons using add-ons will now prompt you to install the add-on if it is missing.
 - Added "Edit Nodes" button to top options menu bar when in the nodes section of libraries (will install plugin.library.node.editor).
 - Added plugin.library.node.editor to Skin Settings > Supported Add-ons section.
 - Added support for animated movie poster in the View Options for List View, List Info View, List Info 3 View, Fanart View and movie information window.
-- Centered confirm dialog and busy dialog.
-- Removed Player.ShowCodec.
-- Merged 9 dialogs into DialogSettings.xml
-- Updated DialogSelect.xml, DialogMasterModeFreeSurround.xml, DialogParametricEQ.xml, DialogSpeakerDistance.xml, DialogSpeakerGain.xml to reflect DialogSettings.xml
-- Added DialogGameControllers.xml
-- Added 2 new default icons.
-- Removed script.artistslideshow from skin dependencies.
-- Use Container.ShowTitle for breadcrumbs.
-- script.extendedinfo changes for Krypton.
+- Centered yes/no dialog, busy dialog, ok dialog and progress dialog.
 - Added support for script.module.t9.search.
 - Added "Configure Menus" section to skin settings. Enable / disable shutdown menu and context menu items.
 - Changed top options menubar Filter button to radiobutton.
@@ -104,11 +77,10 @@
 - Removed add-on star rating and rating since it doesn't work.
 - Added support for script.user.rating in the context menu of movies, tv shows and episodes library.
 - Font fixes.
-- Removed System.GetBool(pvrmanager.enabled)
 - Removed loading PVR channels in startup window.
 
 ------------------------
-[B]10.0.3 (2-March-16)[/B]
+[B]9.4.4 (2-March-16)[/B]
 ------------------------
 - Fix for ExtendedInfo VideoList and YoutubeList windows.
 - Added date label to Info Pane in pictures windows.
@@ -117,43 +89,15 @@
 - Added CPU usage progress bar and Memory usage progress bar to system information window.
 
 ------------------------
-[B]10.0.2 (25-February-16)[/B]
+[B]9.4.3 (25-February-16)[/B]
 ------------------------
 - Added Settings menu dialog to menubar in weather window. This allows you to choose weather icons and background fanart packs.
 
 ------------------------
-[B]10.0.1 (24-February-16)[/B]
+[B]9.4.2 (24-February-16)[/B]
 ------------------------
 - Changed visibility for "Current Playlist" button in the menubar when a playlist is active.
 - Fixed missing label for location button in weather window menubar.
-
-------------------------
-[B]10.0.0 (21-February-16)[/B]
-------------------------
-- Updated skin to Kodi 17 Krypton.
-- Renamed DialogKaiToast.xml to DialogNotification.xml
-- Merged DialogMutebug.xml into DialogVolumeBar.xml
-- Merged DialogOK.xml, DialogProgress.xml and DialogYesNo.xml into DialogConfirm.xml
-- Merged MyVideoPlaylist.xml and MyMusicPlaylist.xml into MyPlaylist.xml
-- Merged DialogAlbumInfo.xml and DialogSongInfo.xml into DialogMusicInfo.xml
-- Updated DialogSelect.xml and DialogContentSettings.xml
-- Update of Skin Settings > Supported Add-ons to use InstallAddon().
-- Updated buttons in menubar for add-on browser.
-- Replaced bools to use ListItem.IsParentFolder.
-- Song information window is now fullscreen.
-- Added new infolabels to song information window.
-- Removed old music and video star ratings. All star ratings will now use a 1-10 scale.
-- Added Live TV / Radio Timer Rules to presets dialog when creating custom categories and submenus.
-- Added Live TV Timer Rules to home screen Live TV category submenu.
-- Added TV / Radio Timer Rules button to PVR windows menubar.
-- Removed Group Timers button from menubar in Live TV / Radio Timers / Timer Rules windows.
-- Added Hide Disabled Timers button to menubar in Live TV / Radio Timers / Timer Rules windows.
-- Added new infolabels to add-on information window and updated all add-on infolabels.
-- The fullscreen video seekbar will now show if the user has requested the time to show.
-- Updated in progress tv shows paths.
-- Added "Get More..." button to menubar in all add-on windows to get more add-ons of the specific content type.
-- Added new default icons.
-- Added "Set user rating" button in fullscreen music OSD.
 
 ------------------------
 [B]9.4.1 (21-February-16)[/B]
@@ -168,7 +112,7 @@
 - Updated Hebrew home screen category images (thanks to dontel).
 - Added support for plugin.program.autocompletion in DialogKeyboard.xml and Skin Settings > Supported Add-ons.
 - Updated calls for script.extendedinfo.
-- Added additional PVR info to Guide / Search / Timers / Timer Rules windows.
+- Added additional PVR info to Guide / Search / Timers windows.
 
 ------------------------
 [B]9.4.0 (12-February-16)[/B]

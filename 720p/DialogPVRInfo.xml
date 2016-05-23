@@ -10,15 +10,15 @@
 	<controls>
 		<control type="group">
 			<depth>DepthDialog</depth>
+			<include>PVRGuideInfoDialogBox</include>
 			<include>DialogOpenCloseAnim</include>	
-			
-			<include content="DialogWithCloseBtnLabel">
-				<param name="width" value="670"/>
-				<param name="height" value="540" />
-				<param name="left" value="610" />
-				<param name="labelwidth" value="590" />
-				<param name="label" value="$INFO[ListItem.Title]" />
-			</include>
+
+			<control type="label">
+				<description>Title</description>
+				<width>590</width>
+				<label>$INFO[ListItem.Title]</label>
+				<include>DialogTitle</include>
+			</control>
 
 			<control type="grouplist" id="9000">
 				<description>Dialog Button Area</description>
@@ -132,21 +132,21 @@
 							<label>$LOCALIZE[369]</label>
 							<label2>$INFO[ListItem.EpisodeName]$INFO[ListItem.Season, (S,]$INFO[ListItem.Episode,E,)]</label2>
 							<onclick>noop</onclick>
-							<visible>!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.EpisodeName)</visible>
+							<visible>!IsEmpty(ListItem.Season) + !IsEmpty(ListItem.EpisodeName)</visible>
 						</item>
 						<item id="2">
 							<description>Title</description>
 							<label>$LOCALIZE[369]</label>
 							<label2>$INFO[ListItem.EpisodeName]</label2>
 							<onclick>noop</onclick>
-							<visible>String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.EpisodeName)</visible>
+							<visible>IsEmpty(ListItem.Season) + !IsEmpty(ListItem.EpisodeName)</visible>
 						</item>
 						<item id="3">
 							<description>Title</description>
 							<label>$LOCALIZE[369]</label>
 							<label2>$INFO[ListItem.Title]</label2>
 							<onclick>noop</onclick>
-							<visible>String.IsEmpty(ListItem.Season) + String.IsEmpty(ListItem.EpisodeName)</visible>
+							<visible>IsEmpty(ListItem.Season) + IsEmpty(ListItem.EpisodeName)</visible>
 						</item>
 						<item id="4">
 							<description>Start Date</description>
